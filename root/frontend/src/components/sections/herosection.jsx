@@ -1,86 +1,96 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import bgImage from "../../assets/mountain_bg.png";
-import midImage from "../../assets/buddha_at_lake.png";
+import midImage from "../../assets/buddha_at_lake2.png";
 import fgImage from "../../assets/lush_plants.png";
+
+const LAYERS = [
+  { speed: 0.0,  alignBottom: false, initialOffset: 0    }, // háttér — fix
+  { speed: 0.3, alignBottom: false, initialOffset: 0  }, // buddha — közepes
+  { speed: 0.60, alignBottom: true                        }, // növényzet
+];
 
 export default function ParallaxHero() {
   const containerRef = useRef(null);
-  const layerRefs = useRef([]);
+  const layerRefs    = useRef([]);
+  const rafRef       = useRef(null);
+  const bgImgRef     = useRef(null);
+
+  // Konténer magassága = háttérkép renderelt magassága
+  const updateContainerHeight = () => {
+    if (bgImgRef.current && containerRef.current) {
+      containerRef.current.style.height =
+        `${bgImgRef.current.offsetHeight}px`;
+    }
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const speeds = [0.15, 0.45, 0.65];
+    const getH = () => containerRef.current?.offsetHeight ?? window.innerHeight;
 
+    const update = () => {
+      const scrollY = window.scrollY;
+      const h = getH();
       layerRefs.current.forEach((layer, i) => {
-        if (layer) {
-          layer.style.transform = `translateY(${scrollY * speeds[i]}px)`;
+        if (!layer) return;
+        const { speed, alignBottom, initialOffset } = LAYERS[i];
+        const img = layer.querySelector("img");
+
+        let startY;
+        if (alignBottom) {
+          const imgH = img?.offsetHeight ?? 0;
+          startY = window.innerHeight - imgH + 50;
+        } else {
+          startY = (initialOffset ?? 0) * h;
         }
+
+        layer.style.transform =
+          `translate3d(0, ${startY + scrollY * speed}px, 0)`;
       });
+      rafRef.current = null;
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!rafRef.current) rafRef.current = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => { updateContainerHeight(); update(); }, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", update);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   return (
     <section
       ref={containerRef}
       className="relative w-full overflow-hidden"
-      style={{ height: "200vh" }}  
+      // Nincs fix height — a bgImgRef.onLoad beállítja dinamikusan
     >
-      {/* Hátsó réteg: hegyes táj - a tetején kezdődik */}
-      <div
-        ref={(el) => (layerRefs.current[0] = el)}
-        className="absolute w-full"
-        style={{ willChange: "transform", zIndex: 1, top: "0px" }}
-      >
-        <img src={bgImage} alt="" className="w-full" style={{ height: "auto" }} draggable={false} />
-      </div>
-
-      {/* Középső réteg: buddha - középtájon */}
-      <div
-        ref={(el) => (layerRefs.current[1] = el)}
-        className="absolute w-full"
-        style={{ willChange: "transform", zIndex: 2, top: "3%" }}
-      >
-        <img src={midImage} alt="" className="w-full" style={{ height: "auto" }} draggable={false} />
-      </div>
-
-      {/* Előtér réteg: növényzet - alul */}
-      <div
-        ref={(el) => (layerRefs.current[2] = el)}
-        className="absolute w-full"
-        style={{ willChange: "transform", zIndex: 3, top: "25%" }}
-      >
-        <img src={fgImage} alt="" className="w-full" style={{ height: "auto" }} draggable={false} />
-      </div>
-
-      {/* Szöveg - a viewport tetején marad */}
-      <div
-        className="sticky top-0 h-screen flex flex-col items-center justify-center"
-        style={{ zIndex: 10 }}
-      >
-        <h1 className="text-white text-5xl md:text-7xl font-bold drop-shadow-lg text-center px-4">
-          HeadSpa Félegyháza
-        </h1>
-        <p className="text-white text-xl mt-4 drop-shadow-md">
-          Fedezze fel az igazi kikapcsolódást
-        </p>
-      </div>
-
-      {/* Scroll jelző */}
-      <div
-        className="absolute w-full flex justify-center"
-        style={{ zIndex: 10, top: "85vh" }}
-      >
-        <div className="animate-bounce">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
+      {[bgImage, midImage, fgImage].map((src, i) => (
+        <div
+          key={i}
+          ref={(el) => (layerRefs.current[i] = el)}
+          className="absolute w-full top-0"
+          style={{ willChange: "transform", zIndex: i + 1 }}
+        >
+          <img
+            src={src}
+            alt=""
+            draggable={false}
+            className="w-full"
+            style={{ display: "block", height: "auto" }}
+            // Csak a háttérképnél kell az onLoad és a ref
+            {...(i === 0 ? {
+              ref: bgImgRef,
+              onLoad: updateContainerHeight,
+            } : {})}
+          />
         </div>
-      </div>
+      ))}
     </section>
   );
 }
