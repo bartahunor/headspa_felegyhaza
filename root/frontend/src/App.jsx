@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/layout/NavBar.jsx'
+import Footer from './components/layout/Footer.jsx'
 import HomePage from './pages/HomePage.jsx'
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         {/* <Route path="/rolunk" element={<AboutPage />} /> */}
         {/* <Route path="/szolgaltatasok" element={<ServicesPage />} /> */}
       </Routes>
+      <Footer />
     </>
   )
 }
