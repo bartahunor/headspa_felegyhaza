@@ -1,114 +1,123 @@
 <!DOCTYPE html>
 
-<html lang="hu"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "surface-container-low": "#f5f3ee",
-                    "outline-variant": "#c2c8c2",
-                    "error-container": "#ffdad6",
-                    "on-background": "#1b1c19",
-                    "on-primary-fixed-variant": "#364b3f",
-                    "error": "#ba1a1a",
-                    "on-error": "#ffffff",
-                    "tertiary-fixed-dim": "#b9ccb4",
-                    "tertiary-container": "#324231",
-                    "on-secondary-fixed-variant": "#544527",
-                    "on-secondary": "#ffffff",
-                    "secondary": "#6d5c3c",
-                    "secondary-fixed": "#f7e0b7",
-                    "on-secondary-fixed": "#251a02",
-                    "surface-container-high": "#eae8e3",
-                    "on-primary": "#ffffff",
-                    "surface-container-highest": "#e4e2dd",
-                    "inverse-primary": "#b4ccbc",
-                    "secondary-fixed-dim": "#dac49d",
-                    "on-surface": "#1b1c19",
-                    "inverse-on-surface": "#f2f1ec",
-                    "tertiary": "#1d2c1c",
-                    "surface-bright": "#fbf9f4",
-                    "secondary-container": "#f7e0b7",
-                    "surface-container": "#f0eee9",
-                    "surface-container-lowest": "#ffffff",
-                    "on-primary-container": "#96ae9e",
-                    "surface-tint": "#4d6356",
-                    "on-primary-fixed": "#0b1f15",
-                    "on-secondary-container": "#736242",
-                    "primary-fixed-dim": "#b4ccbc",
-                    "background": "#fbf9f4",
-                    "primary-container": "#2d4236",
-                    "surface": "#fbf9f4",
-                    "tertiary-fixed": "#d5e8cf",
-                    "primary": "#172c21",
-                    "surface-dim": "#dbdad5",
-                    "on-error-container": "#93000a",
-                    "on-surface-variant": "#424844",
-                    "on-tertiary-container": "#9cae98",
-                    "primary-fixed": "#d0e8d7",
-                    "surface-variant": "#e4e2dd",
-                    "outline": "#737873",
-                    "on-tertiary-fixed-variant": "#3b4b39",
-                    "on-tertiary": "#ffffff",
-                    "inverse-surface": "#30312e",
-                    "on-tertiary-fixed": "#101f10"
+<html lang="hu">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f5f3ee",
+                        "outline-variant": "#c2c8c2",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1b1c19",
+                        "on-primary-fixed-variant": "#364b3f",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#b9ccb4",
+                        "tertiary-container": "#324231",
+                        "on-secondary-fixed-variant": "#544527",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#6d5c3c",
+                        "secondary-fixed": "#f7e0b7",
+                        "on-secondary-fixed": "#251a02",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2dd",
+                        "inverse-primary": "#b4ccbc",
+                        "secondary-fixed-dim": "#dac49d",
+                        "on-surface": "#1b1c19",
+                        "inverse-on-surface": "#f2f1ec",
+                        "tertiary": "#1d2c1c",
+                        "surface-bright": "#fbf9f4",
+                        "secondary-container": "#f7e0b7",
+                        "surface-container": "#f0eee9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#96ae9e",
+                        "surface-tint": "#4d6356",
+                        "on-primary-fixed": "#0b1f15",
+                        "on-secondary-container": "#736242",
+                        "primary-fixed-dim": "#b4ccbc",
+                        "background": "#fbf9f4",
+                        "primary-container": "#2d4236",
+                        "surface": "#fbf9f4",
+                        "tertiary-fixed": "#d5e8cf",
+                        "primary": "#172c21",
+                        "surface-dim": "#dbdad5",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#424844",
+                        "on-tertiary-container": "#9cae98",
+                        "primary-fixed": "#d0e8d7",
+                        "surface-variant": "#e4e2dd",
+                        "outline": "#737873",
+                        "on-tertiary-fixed-variant": "#3b4b39",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#30312e",
+                        "on-tertiary-fixed": "#101f10"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px",
+                        "container-max": "1200px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "label-sm": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "headline-md": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "body-md": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "300" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                },
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-mobile": "20px",
-                    "gutter": "24px",
-                    "margin-desktop": "80px",
-                    "container-max": "1200px",
-                    "unit": "8px"
-            },
-            "fontFamily": {
-                    "headline-lg-mobile": ["Bodoni Moda"],
-                    "label-sm": ["Manrope"],
-                    "body-lg": ["Manrope"],
-                    "headline-lg": ["Bodoni Moda"],
-                    "headline-md": ["Bodoni Moda"],
-                    "display-lg": ["Bodoni Moda"],
-                    "body-md": ["Manrope"]
-            },
-            "fontSize": {
-                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
-                    "label-sm": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "300"}],
-                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "400"}],
-                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "400"}],
-                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
-            }
-          },
-        },
-      }
+        }
     </script>
-<style>
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
         .organic-shape {
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
         }
-        
+
         /* Interactive Background Elements Styles */
         .bubble {
             position: fixed;
@@ -119,7 +128,7 @@
             z-index: 1;
             will-change: transform, opacity;
         }
-        
+
         .leaf {
             position: fixed;
             pointer-events: none;
@@ -134,370 +143,500 @@
         }
 
         @keyframes pop {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-            100% { transform: scale(2); opacity: 0; }
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
         }
 
-        section, header, footer {
+        section,
+        header,
+        footer {
             position: relative;
             z-index: 10;
         }
     </style>
 </head>
+
 <body class="bg-background text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- Background Animation Layers -->
-<div class="fixed inset-0 pointer-events-none z-0" id="bubble-container"></div>
-<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="leaf-container"></div>
-<!-- TopNavBar -->
-<nav class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-sm shadow-primary/5">
-<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="font-headline-md text-headline-md tracking-widest text-primary dark:text-primary-fixed uppercase">Gut Ildi</div>
-<div class="hidden md:flex gap-8 items-center">
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm uppercase" href="#">Főoldal</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase" href="#">Rólunk</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase" href="#">Szolgáltatások</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase" href="#">Élmény</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase" href="#">Vélemények</a>
-</div>
-
-</div>
-</nav>
-<!-- Hero Section -->
-<header class="relative min-h-[90vh] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop">
-<div class="absolute top-20 right-[-100px] w-96 h-96 bg-primary/5 organic-shape -z-10 blur-3xl"></div>
-<div class="absolute bottom-10 left-10 w-64 h-64 bg-secondary/5 organic-shape -z-10 blur-2xl"></div>
-<div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-<div class="space-y-8">
-<div class="inline-flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase tracking-[0.2em]">
-<span class="w-12 h-[1px] bg-primary"></span>
-                HAIR STYLe & HEAD SPA
+    <!-- Background Animation Layers -->
+    <div class="fixed inset-0 pointer-events-none z-0" id="bubble-container"></div>
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" id="leaf-container"></div>
+    <!-- TopNavBar -->
+    <nav
+        class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl docked full-width top-0 sticky z-50 shadow-sm shadow-primary/5">
+        <div
+            class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div
+                class="font-headline-md text-headline-md tracking-widest text-primary dark:text-primary-fixed uppercase">
+                Gut Ildi</div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm uppercase"
+                    href="#">Főoldal</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase"
+                    href="#">Rólunk</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase"
+                    href="#">Szolgáltatások</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase"
+                    href="#">Élmény</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-sm text-label-sm uppercase"
+                    href="#">Vélemények</a>
             </div>
-<h1 class="font-display-lg text-display-lg text-primary leading-tight">
-                Személyre Szabott<br/>
-<span class="italic font-light" style="color: #01582f;"">Head Spa Rituálé</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
-                Nálunk minden kezelés egyedi, a fejbőröd állapotához és hajad igényeihez igazítva építjük fel a teljes head spa élményt.
-            </p>
-<div class="flex flex-wrap gap-4 pt-4">
-</div>
-</div>
-<div class="relative">
-<div class="aspect-[4/5] organic-shape overflow-hidden shadow-2xl relative z-10">
-<img alt="Gut Ildi Head Spa treatment experience" class="w-full h-full object-contain bg-transparent" src="levelek.png"/>
-</div>
-<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-surface-container organic-shape -z-10 border border-outline-variant/30"></div>
-</div>
-</div>
-</header>
-<!-- About Section -->
-<section class="py-40 bg-surface-container-low px-margin-mobile md:px-margin-desktop overflow-hidden">
-<div class="max-w-container-max mx-auto">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-<div class="order-2 md:order-1 relative">
-<div class="w-full aspect-square organic-shape overflow-hidden border-[16px] border-white shadow-xl">s
-<img alt="Essential oils and spa atmosphere" class="w-full h-full object-cover"  src="gutildi_kep.jpg"/>
-</div>
-<div class="absolute -top-12 -left-12 p-8 glass-card rounded-3xl max-w-[240px]">
 
-</div>
-</div>
-<div class="order-1 md:order-2 space-y-8">
-<h2 class="font-headline-lg text-headline-lg text-primary">Rólam</h2>
-<div class="w-20 h-1 bg-secondary opacity-30"></div>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    Palástiné Gut Ildikó vagyok, női-, férfi- és gyermekfodrász.
-                    2003-ban végeztem női, férfi és gyermek fodrászként, és azóta is ugyanolyan szeretettel végzem a munkámat, mint az első napon. Szerencsés embernek tartom magam, hiszen a hivatásom egyben a hobbim is. Számomra a szépségápolás nem csupán munka, hanem egy olyan alkotó folyamat, ahol a vendégek testi-lelki feltöltődése is fontos szerepet kap.
-                </p>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    Munkám során kiemelten figyelek a minőségre és a természetességre. Professzionális, növényi összetevőket tartalmazó hajápoló termékekkel dolgozom, melyeket a Kemon biztosít számomra. Emellett volt szerencsém megismerkedni a Norann arcápolási termékcsaláddal is, amely szintén természetes összetevőkre épül, így tökéletesen illeszkedik a szemléletemhez.
-                </p>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    A Head Spa világa már közel egy éve különösen közel áll hozzám. Hiszem, hogy a mai rohanó világban mindannyiunknak szüksége van arra, hogy időnként megálljunk, lelassuljunk, és újra önmagunkra figyeljünk. Ez a kezelés nemcsak a haj és a fejbőr ápolásáról szól, hanem a relaxációról, a feltöltődésről és a belső harmónia megteremtéséről is.
-                </p>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    Saját életemben is megtapasztaltam, mennyire fontos a lassítás és az egyensúly megtalálása, ezért különösen fontos számomra, hogy a vendégeim is nyugalmat, pihenést és törődést kapjanak minden kezelés során.
-                </p>
-<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    Szeretettel várlak egy olyan környezetben, ahol a szépségápolás élménnyé válik.
-                </p>           
-
-</div>
-</div>
-</div>
-</section>
-<!-- Services Section -->
-<section class="py-40 px-margin-mobile md:px-margin-desktop bg-background">
-<div class="max-w-container-max mx-auto space-y-16">
-<div class="text-center space-y-4">
-<h2 class="font-headline-lg text-headline-lg text-primary" style="color: #01582f;">Hogyan is épül fel?</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter max-w-6xl mx-auto">
-<!-- Card 1 -->
-<div class="group glass-card p-8 rounded-[40px] border border-outline-variant/20 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
-<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">medical_services</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-4">1. lépés</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">Fejbőr elemzés & konzultáció</p>
-<span class="text-primary font-bold font-label-sm text-label-sm uppercase tracking-widest"></span>
-</div>
-<!-- Card 2 -->
-<div class="group glass-card p-8 rounded-[40px] border border-outline-variant/20 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
-<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">self_care</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-4">2. lépés</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">Egyedi kezelés összeállítása</p>
-<span class="text-primary font-bold font-label-sm text-label-sm uppercase tracking-widest"></span>
-</div>
-<!-- Card 3 -->
-<div class="group glass-card p-8 rounded-[40px] border border-outline-variant/20 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
-<div class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-<span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">spa</span>
-</div>
-<h3 class="font-headline-md text-headline-md text-primary mb-4">3. lépés</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">Head spa élmény</p>
-<span class="text-primary font-bold font-label-sm text-label-sm uppercase tracking-widest"></span>
-</div>
-<!-- Card 4 -->
-</div>
-</section>
-<!-- Experience Section (Process) -->
-<section class="py-40 bg-surface-container-highest/30 px-margin-mobile md:px-margin-desktop relative">
-<div class="max-w-container-max mx-auto">
-<div class="mb-24">
-<h2 class="font-headline-lg text-headline-lg text-primary mb-6">A kezelés menete</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Hogyan is épül fel a személyre szabott Head Spa élmény?</p>
-</div>
-<div class="space-y-32">
-<!-- Step 1 -->
-<div class="flex flex-col md:flex-row items-center gap-16 md:gap-32">
-<div class="w-full md:w-1/2">
-<div class="font-display-lg text-[120px] text-primary/10 mb-[-60px] font-bold">01</div>
-<h3 class="font-headline-lg text-headline-lg text-primary relative z-10 mb-6">Fejbőr elemzés</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        Minden rituálé alapos vizsgálattal kezdődik. Mikroszkópos fejbőr-kamerával elemezzük a bőr állapotát, a hajhagymák egészségét, hogy pontosan azt a kezelést kapja, amire szüksége van.
-                    </p>
-</div>
-<div class="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-xl border-8 border-white">
-<img alt="Scalp analysis visualization" class="w-full h-full object-cover" data-alt="A professional aesthetician using a high-tech microscopic camera to analyze a client's scalp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWZKHfAHtN2Ubqn1Y9bhySDBXSU9WkvqT7GF-t3SpLOH8pyT3XvLpxBgPa5wjpEqy7fM309UVRF-mO5fQpGP6GxQVs3GMsBxNzSkPV7LT6OnpvkJF5vwNog1ZkQ5YnlReUsZ7swkvnNhH7FMbs6jIRE4k2B4h-XGxlQ9vc83bEH1SrReXmXMvxqhJqxqmpQcsKSsWxr0J1CqwNERMtgn8F_qQMX3lqK8IdezZZszgE0Mkp7GzdBXzBTaG2F9lKKmLJZiBBlHwXteE"/>
-</div>
-</div>
-<!-- Step 2 -->
-<div class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-32">
-<div class="w-full md:w-1/2">
-<div class="font-display-lg text-[120px] text-primary/10 mb-[-60px] font-bold text-right md:text-left">02</div>
-<h3 class="font-headline-lg text-headline-lg text-primary relative z-10 mb-6">Egyedi összeállítás</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        Az eredmények alapján kiválasztjuk a megfelelő dōTERRA illóolajokat és hatóanyagokat. Nincs két egyforma fejbőr, így nincs két egyforma kezelés sem.
-                    </p>
-</div>
-<div class="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-xl border-8 border-white">
-<img alt="Essential oil selection process" class="w-full h-full object-cover" data-alt="An artistic display of apothecary-style bottles containing essential oils." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQKthCuWRzGxhuF4-tKpMa3gPr2lE9QWdBz5h7HVRIThJe_biJMvwcgWOnpcncZfjTAqPu_hF07gdcI7umJfYtiJZlp9R0nTySPf_5rFh30CPrnKqf_QBHbcm5QMO9tQ0EhUn7IxndslIJz-m9ibb_N0Vncxs8f306j8FDppMoZivXguIzoVvHOw0HExSGOkB2LYnVdxdhrtdUnQzf6fiYgbDj3LjvqnZS6fYcPPOIOBrXL-wCSYFKnEZy7upcUQihAiVZidSdw-U"/>
-</div>
-</div>
-<!-- Step 3 -->
-<div class="flex flex-col md:flex-row items-center gap-16 md:gap-32">
-<div class="w-full md:w-1/2">
-<div class="font-display-lg text-[120px] text-primary/10 mb-[-60px] font-bold">03</div>
-<h3 class="font-headline-lg text-headline-lg text-primary relative z-10 mb-6">A Head Spa élmény</h3>
-<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                        A rituálé csúcspontja a vízi terápia és a speciális masszázstechnikák ötvözete. A meleg gőz és a víz ritmikus mozgása segít a teljes ellazulásban és a hatóanyagok mély beszívódásában.
-                    </p>
-</div>
-<div class="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-xl border-8 border-white">
-<img alt="Relaxing water ritual at head spa" class="w-full h-full object-cover" data-alt="A mesmerizing photograph of a head spa water ritual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQZFmGCbc80foHoEMNsTfG-kMxvi6E4y-x8c5BbQYwd2wlFUMUBLJBa3DksDh1Yrk7PyQbFJEgDx76fMe1gVUEaGyh2S6GdYauwMWBY6BCFgWP-tZnFJogeY8_gChSyL2G5Ay5YuEOYFDyBjW048k7g8UpeNQ6GxQWs--jlDF2KMTJpcmEYiat4Pln6RJLTIOBuAlmi6B3aUX0Az1MjTDOZvBFwt7U4rf3SFB_8oyr57iXCB3e9YN2_KaUhu3LumbgVGoqyVDs_0M"/>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Testimonials Section -->
-
-<!-- Footer Section -->
-<footer class="bg-surface-container-highest dark:bg-tertiary-container border-t border-outline-variant/30 pt-20 pb-10 px-margin-mobile md:px-margin-desktop">
-<div class="max-w-container-max mx-auto flex flex-col items-center gap-16 text-center">
-<div class="space-y-4">
-<div class="font-headline-md text-headline-md text-primary dark:text-on-tertiary-container uppercase tracking-[0.3em]">Gut Ildi</div>
-<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Hair Style &amp; Head Spa</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-16 w-full py-12 border-y border-outline-variant/20">
-<div class="space-y-4">
-<p class="font-label-sm text-label-sm font-bold text-primary uppercase">Cím</p>
-<p class="font-body-md text-body-md text-on-surface-variant">7621 Pécs,<br/>Király utca 12.</p>
-</div>
-<div class="space-y-4">
-<p class="font-label-sm text-label-sm font-bold text-primary uppercase">Elérhetőség</p>
-<p class="font-body-md text-body-md text-on-surface-variant">+36 30 123 4567<br/>hello@gutildi.hu</p>
-</div>
-<div class="space-y-4">
-<p class="font-label-sm text-label-sm font-bold text-primary uppercase">Nyitvatartás</p>
-<p class="font-body-md text-body-md text-on-surface-variant">Hétfő - Péntek: 08:00 - 18:00<br/>Szombat: Bejelentkezés szerint</p>
-</div>
-</div>
-<div class="flex flex-wrap justify-center gap-8">
-<a class="text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-label-sm text-label-sm" href="#">Adatkezelés</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-label-sm text-label-sm" href="#">Impresszum</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-label-sm text-label-sm" href="#">Kapcsolat</a>
-</div>
-<div class="font-label-sm text-label-sm text-on-surface-variant/60">
-            © 2024 Gut Ildi Hair Style &amp; Head Spa. Minden jog fenntartva.
         </div>
-</div>
-</footer>
-<!-- FAB for booking -->
-<div class="fixed bottom-8 right-8 z-[100] md:hidden">
-<button class="bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
-<span class="material-symbols-outlined">calendar_today</span>
-</button>
-</div>
-<!-- Background Animation Logic -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const bubbleContainer = document.getElementById('bubble-container');
-        const leafContainer = document.getElementById('leaf-container');
-        const bubbles = [];
-        const leaves = [];
-        
-        let lastScrollY = window.scrollY;
-        
-        // Configuration
-        const bubbleCount = 15;
-        const leafCount = 8;
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative min-h-[90vh] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop">
+        <div class="absolute top-20 right-[-100px] w-96 h-96 bg-primary/5 organic-shape -z-10 blur-3xl"></div>
+        <div class="absolute bottom-10 left-10 w-64 h-64 bg-secondary/5 organic-shape -z-10 blur-2xl"></div>
+        <div class="max-w-container-max mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div
+                    class="inline-flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase tracking-[0.2em]">
+                    <span class="w-12 h-[1px] bg-primary"></span>
+                    HAIR STYLe & HEAD SPA
+                </div>
+                <h1 class="font-display-lg text-display-lg text-primary leading-tight">
+                    Személyre Szabott<br />
+                    <span class="italic font-light" style="color: #01582f;"">Head Spa Rituálé</span>
+                </h1>
+                        <p class=" font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Nálunk minden kezelés egyedi, a fejbőröd állapotához és hajad igényeihez igazítva építjük fel a
+                        teljes head spa élményt.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-4">
+                        </div>
+            </div>
+            <div class="relative">
+                <div class="aspect-[4/5] organic-shape overflow-hidden shadow-2xl relative z-10">
+                    <img alt="Gut Ildi Head Spa treatment experience"
+                        class="w-full h-full object-contain bg-transparent" src="levelek.png" />
+                </div>
+                <div
+                    class="absolute -bottom-10 -right-10 w-64 h-64 bg-surface-container organic-shape -z-10 border border-outline-variant/30">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About Section -->
+    <section class="py-40 bg-surface-container-low px-margin-mobile md:px-margin-desktop overflow-hidden">
+        <div class="max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
 
-        // --- BUBBLES SYSTEM ---
-        function createBubble() {
-            const bubble = document.createElement('div');
-            const size = Math.random() * 40 + 20;
-            const left = Math.random() * 100;
-            const initialTop = 100 + (Math.random() * 20); // Start below viewport
-            
-            bubble.className = 'bubble';
-            bubble.style.width = `${size}px`;
-            bubble.style.height = `${size}px`;
-            bubble.style.left = `${left}%`;
-            bubble.style.top = `${initialTop}%`;
-            bubble.dataset.speed = Math.random() * 0.2 + 0.1;
-            bubble.dataset.y = initialTop;
-            bubble.dataset.popped = "false";
-            
-            bubbleContainer.appendChild(bubble);
-            return bubble;
-        }
+                <!-- KÉP -->
+                <div class="order-2 md:order-1 relative">
+                    <img src="Gemini_Generated_Image_dsaos6dsaos6dsao.png" class="absolute left-[38%] top-1/2 -translate-x-1/2 -translate-y-1/2
+           w-[150%] max-w-none
+           object-contain z-0 wreath-float pointer-events-none" alt="" />
 
-        for (let i = 0; i < bubbleCount; i++) {
-            bubbles.push(createBubble());
-        }
+                    <div
+                        class="w-[85%] aspect-square organic-shape overflow-hidden border-[16px] border-[#F5F3EE] shadow-xl relative z-10 float-image">
 
-        // --- LEAVES SYSTEM ---
-        function createLeaf() {
-            const leaf = document.createElement('span');
-            leaf.className = 'leaf material-symbols-outlined';
-            leaf.innerHTML = 'eco';
-            leaf.style.fontSize = `${Math.random() * 40 + 40}px`;
-            
-            const x = Math.random() * 100;
-            const y = Math.random() * 100;
-            
-            leaf.style.left = `${x}%`;
-            leaf.style.top = `${y}%`;
-            
-            const leafData = {
-                el: leaf,
-                x: x,
-                y: y,
-                rotation: Math.random() * 360,
-                speedX: (Math.random() - 0.5) * 0.02,
-                speedY: (Math.random() - 0.5) * 0.02,
-                rotateSpeed: (Math.random() - 0.5) * 0.1,
-                parallax: Math.random() * 0.15 + 0.05
-            };
-            
-            leafContainer.appendChild(leaf);
-            return leafData;
-        }
+                        <img alt="Essential oils and spa atmosphere" class="w-full h-full object-cover"
+                            src="Gemini_Generated_Image_vvi8pbvvi8pbvvi8.png" />
+                    </div>
 
-        for (let i = 0; i < leafCount; i++) {
-            leaves.push(createLeaf());
-        }
+                    <div class="absolute -top-12 -left-12 p-8 glass-card rounded-3xl max-w-[240px]">
+                    </div>
 
-        // --- ANIMATION LOOP ---
-        function animate() {
-            const currentScrollY = window.scrollY;
-            const scrollDelta = currentScrollY - lastScrollY;
-            
-            // Update bubbles
-            bubbles.forEach((bubble) => {
-                if (bubble.dataset.popped === "true") return;
+                </div>
 
-                let currentY = parseFloat(bubble.dataset.y);
-                const speed = parseFloat(bubble.dataset.speed);
-                
-                // Float up naturally
-                currentY -= speed;
-                
-                // Scroll interaction: bubble reacts to scroll speed
-                currentY -= scrollDelta * 0.05;
+                <!-- SZÖVEG -->
+                <div class="order-1 md:order-2 space-y-8">
+                    <h2 class="font-headline-lg text-headline-lg text-primary">Rólam</h2>
 
-                // Reset bubble if off top
-                if (currentY < -10) {
-                    currentY = 110;
-                    bubble.style.left = `${Math.random() * 100}%`;
-                }
-                
-                // Pop logic: random chance to pop when scrolling past fast
-                if (Math.abs(scrollDelta) > 50 && Math.random() > 0.98) {
-                    popBubble(bubble);
-                }
+                    <div class="w-20 h-1 bg-secondary opacity-30"></div>
 
-                bubble.dataset.y = currentY;
-                bubble.style.transform = `translateY(${currentY}vh)`;
-            });
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Palástiné Gut Ildikó vagyok, női-, férfi- és gyermekfodrász.
+                        2003-ban végeztem női, férfi és gyermek fodrászként, és azóta is ugyanolyan szeretettel végzem a
+                        munkámat, mint az első napon. Szerencsés embernek tartom magam, hiszen a hivatásom egyben a
+                        hobbim is. Számomra a szépségápolás nem csupán munka, hanem egy olyan alkotó folyamat, ahol a
+                        vendégek testi-lelki feltöltődése is fontos szerepet kap.
+                    </p>
 
-            // Update leaves (Parallax & Drifting)
-            leaves.forEach(leaf => {
-                // Gentle breeze drift
-                leaf.x += leaf.speedX;
-                leaf.y += leaf.speedY;
-                leaf.rotation += leaf.rotateSpeed;
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Munkám során kiemelten figyelek a minőségre és a természetességre. Professzionális, növényi
+                        összetevőket tartalmazó hajápoló termékekkel dolgozom, melyeket a Kemon biztosít számomra.
+                        Emellett volt szerencsém megismerkedni a Norann arcápolási termékcsaláddal is, amely szintén
+                        természetes összetevőkre épül, így tökéletesen illeszkedik a szemléletemhez.
+                    </p>
 
-                // Loop leaves around screen
-                if (leaf.x > 110) leaf.x = -10;
-                if (leaf.x < -10) leaf.x = 110;
-                if (leaf.y > 110) leaf.y = -10;
-                if (leaf.y < -10) leaf.y = 110;
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        A Head Spa világa már közel egy éve különösen közel áll hozzám. Hiszem, hogy a mai rohanó
+                        világban mindannyiunknak szüksége van arra, hogy időnként megálljunk, lelassuljunk, és újra
+                        önmagunkra figyeljünk. Ez a kezelés nemcsak a haj és a fejbőr ápolásáról szól, hanem a
+                        relaxációról, a feltöltődésről és a belső harmónia megteremtéséről is.
+                    </p>
 
-                // Parallax shift based on scroll
-                const scrollEffect = currentScrollY * leaf.parallax;
-                
-                leaf.el.style.transform = `translate(${leaf.x}vw, calc(${leaf.y}vh - ${scrollEffect}px)) rotate(${leaf.rotation}deg)`;
-            });
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Saját életemben is megtapasztaltam, mennyire fontos a lassítás és az egyensúly megtalálása,
+                        ezért különösen fontos számomra, hogy a vendégeim is nyugalmat, pihenést és törődést kapjanak
+                        minden kezelés során.
+                    </p>
 
-            lastScrollY = currentScrollY;
-            requestAnimationFrame(animate);
-        }
+                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                        Szeretettel várlak egy olyan környezetben, ahol a szépségápolás élménnyé válik.
+                    </p>
 
-        function popBubble(bubble) {
-            bubble.dataset.popped = "true";
-            bubble.classList.add('bubble-pop');
-            setTimeout(() => {
-                bubble.classList.remove('bubble-pop');
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="py-40 px-margin-mobile md:px-margin-desktop bg-[url(Gemini_Generated_Image_w4oaxjw4oaxjw4oa.png)]">
+        <div class="max-w-container-max mx-auto space-y-16">
+            <div class="text-center space-y-4">
+                <h2 class="font-headline-lg text-headline-lg text-primary" style="color: #01582f;">Hogyan is épül fel?
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter max-w-6xl mx-auto">
+                <!-- Card 1 -->
+                <div
+                    class="group glass-card p-8 rounded-[40px] border border-outline-variant/20 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-white text-3xl">medical_services</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4">1. lépés</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">Fejbőr elemzés &
+                        konzultáció</p>
+                    <span class="text-primary font-bold font-label-sm text-label-sm uppercase tracking-widest"></span>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="group glass-card p-8 rounded-[40px] border border-outline-variant/20 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                        <span
+                            class="material-symbols-outlined text-primary group-hover:text-white text-3xl">self_care</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4">2. lépés</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">Egyedi kezelés
+                        összeállítása</p>
+                    <span class="text-primary font-bold font-label-sm text-label-sm uppercase tracking-widest"></span>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="group glass-card p-8 rounded-[40px] border border-outline-variant/20 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2">
+                    <div
+                        class="w-16 h-16 bg-primary/5 rounded-full flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">spa</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-primary mb-4">3. lépés</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-6 leading-relaxed">Head spa élmény
+                    </p>
+                    <span class="text-primary font-bold font-label-sm text-label-sm uppercase tracking-widest"></span>
+                </div>
+                <!-- Card 4 -->
+            </div>
+    </section>
+    <!-- Experience Section (Process) -->
+    <section class="py-40 px-margin-mobile md:px-margin-desktop relative bg-cover bg-center">
+        <div class="max-w-container-max mx-auto">
+            <div class="mb-24">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Kedves Vendégeim!</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Annak érdekében, hogy mindenki a lehető legnyugodtabb és legszemélyre szabottabb Head Spa élményben részesüljön, kérlek Benneteket, hogy a megbeszélt időpontra pontosan érkezzetek.</p>
+            </div>
+            <div class="space-y-32">
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-16 md:gap-32">
+                    <div class="w-full md:w-1/2">
+                        <div class="font-display-lg text-[120px] text-primary/10 mb-[-60px] font-bold"></div>
+                        <h3 class="font-headline-lg text-headline-lg text-primary relative z-10 mb-6">PONTOS ÉRKEZÉS
+                        </h3>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            Kérlek, pontosan a foglalt időpontra érkezz.
+                        </p>
+                    </div>
+                    <div
+                        class="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-xl border-8 border-white">
+                        <img alt="Scalp analysis visualization" class="w-full h-full object-cover"
+                            data-alt="A professional aesthetician using a high-tech microscopic camera to analyze a client's scalp."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWZKHfAHtN2Ubqn1Y9bhySDBXSU9WkvqT7GF-t3SpLOH8pyT3XvLpxBgPa5wjpEqy7fM309UVRF-mO5fQpGP6GxQVs3GMsBxNzSkPV7LT6OnpvkJF5vwNog1ZkQ5YnlReUsZ7swkvnNhH7FMbs6jIRE4k2B4h-XGxlQ9vc83bEH1SrReXmXMvxqhJqxqmpQcsKSsWxr0J1CqwNERMtgn8F_qQMX3lqK8IdezZZszgE0Mkp7GzdBXzBTaG2F9lKKmLJZiBBlHwXteE" />
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-32">
+                    <div class="w-full md:w-1/2">
+                        <div
+                            class="font-display-lg text-[120px] text-primary/10 mb-[-60px] font-bold text-right md:text-left">
+                            </div>
+                        <h3 class="font-headline-lg text-headline-lg text-primary relative z-10 mb-6">KORÁBBI ÉRKEZÉS ESETÉN</h3>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            az üzlet előtt várakozz, amíg személyesen érted nem megyek. Mivel egyszerre mindig csak egy vendéggel foglalkozom, csak az előtted lévő kezelés végén tudlak beengedni.
+                        </p>
+                    </div>
+                    <div
+                        class="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-xl border-8 border-white">
+                        <img alt="Essential oil selection process" class="w-full h-full object-cover"
+                            data-alt="An artistic display of apothecary-style bottles containing essential oils."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQKthCuWRzGxhuF4-tKpMa3gPr2lE9QWdBz5h7HVRIThJe_biJMvwcgWOnpcncZfjTAqPu_hF07gdcI7umJfYtiJZlp9R0nTySPf_5rFh30CPrnKqf_QBHbcm5QMO9tQ0EhUn7IxndslIJz-m9ibb_N0Vncxs8f306j8FDppMoZivXguIzoVvHOw0HExSGOkB2LYnVdxdhrtdUnQzf6fiYgbDj3LjvqnZS6fYcPPOIOBrXL-wCSYFKnEZy7upcUQihAiVZidSdw-U" />
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-16 md:gap-32">
+                    <div class="w-full md:w-1/2">
+                        <div class="font-display-lg text-[120px] text-primary/10 mb-[-60px] font-bold"></div>
+                        <h3 class="font-headline-lg text-headline-lg text-primary relative z-10 mb-6">SMINK NÉLKÜL
+                        </h3>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                            A kezelésekhez lehetőség szerint smink nélkül érkezz, hogy az arc- és fejbőrkezelések még komfortosabban és hatékonyabban történhessenek..
+                        </p>
+                    </div>
+                    <div
+                        class="w-full md:w-1/2 aspect-video rounded-3xl overflow-hidden shadow-xl border-8 border-white">
+                        <img alt="Relaxing water ritual at head spa" class="w-full h-full object-cover"
+                            data-alt="A mesmerizing photograph of a head spa water ritual."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQZFmGCbc80foHoEMNsTfG-kMxvi6E4y-x8c5BbQYwd2wlFUMUBLJBa3DksDh1Yrk7PyQbFJEgDx76fMe1gVUEaGyh2S6GdYauwMWBY6BCFgWP-tZnFJogeY8_gChSyL2G5Ay5YuEOYFDyBjW048k7g8UpeNQ6GxQWs--jlDF2KMTJpcmEYiat4Pln6RJLTIOBuAlmi6B3aUX0Az1MjTDOZvBFwt7U4rf3SFB_8oyr57iXCB3e9YN2_KaUhu3LumbgVGoqyVDs_0M" />
+                    </div>
+                </div>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Célom, hogy minden vendég zavartalanul, teljes nyugalomban élhesse át a személyre szabott Head Spa élményt.
+
+KÖSZÖNÖM A MEGÉRTÉST ÉS AZ EGYÜTTMŰKÖDÉST!
+
+Szeretettel: Gut Ildi ♡</p>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+
+    <!-- Footer Section -->
+    <footer
+        class="bg-surface-container-highest dark:bg-tertiary-container border-t border-outline-variant/30 pt-20 pb-10 px-margin-mobile md:px-margin-desktop">
+        <div class="max-w-container-max mx-auto flex flex-col items-center gap-16 text-center">
+            <div class="space-y-4">
+                <div
+                    class="font-headline-md text-headline-md text-primary dark:text-on-tertiary-container uppercase tracking-[0.3em]">
+                    Gut Ildi</div>
+                <p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Hair Style
+                    &amp; Head Spa</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 w-full py-12 border-y border-outline-variant/20">
+                <div class="space-y-4">
+                    <p class="font-label-sm text-label-sm font-bold text-primary uppercase">Cím</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant">7621 Pécs,<br />Király utca 12.</p>
+                </div>
+                <div class="space-y-4">
+                    <p class="font-label-sm text-label-sm font-bold text-primary uppercase">Elérhetőség</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant">+36 30 123 4567<br />hello@gutildi.hu
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <p class="font-label-sm text-label-sm font-bold text-primary uppercase">Nyitvatartás</p>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Hétfő - Péntek: 08:00 -
+                        18:00<br />Szombat: Bejelentkezés szerint</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8">
+                <a class="text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-label-sm text-label-sm"
+                    href="#">Adatkezelés</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-label-sm text-label-sm"
+                    href="#">Impresszum</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-label-sm text-label-sm"
+                    href="#">Kapcsolat</a>
+            </div>
+            <div class="font-label-sm text-label-sm text-on-surface-variant/60">
+                © 2024 Gut Ildi Hair Style &amp; Head Spa. Minden jog fenntartva.
+            </div>
+        </div>
+    </footer>
+    <!-- FAB for booking -->
+    <div class="fixed bottom-8 right-8 z-[100] md:hidden">
+        <button
+            class="bg-primary text-on-primary w-14 h-14 rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform">
+            <span class="material-symbols-outlined">calendar_today</span>
+        </button>
+    </div>
+    <!-- Background Animation Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bubbleContainer = document.getElementById('bubble-container');
+            const leafContainer = document.getElementById('leaf-container');
+            const bubbles = [];
+            const leaves = [];
+
+            let lastScrollY = window.scrollY;
+
+            // Configuration
+            const bubbleCount = 15;
+            const leafCount = 8;
+
+            // --- BUBBLES SYSTEM ---
+            function createBubble() {
+                const bubble = document.createElement('div');
+                const size = Math.random() * 40 + 20;
+                const left = Math.random() * 100;
+                const initialTop = 100 + (Math.random() * 20); // Start below viewport
+
+                bubble.className = 'bubble';
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${left}%`;
+                bubble.style.top = `${initialTop}%`;
+                bubble.dataset.speed = Math.random() * 0.2 + 0.1;
+                bubble.dataset.y = initialTop;
                 bubble.dataset.popped = "false";
-                bubble.dataset.y = 110;
-                bubble.style.left = `${Math.random() * 100}%`;
-            }, 400);
+
+                bubbleContainer.appendChild(bubble);
+                return bubble;
+            }
+
+            for (let i = 0; i < bubbleCount; i++) {
+                bubbles.push(createBubble());
+            }
+
+            // --- LEAVES SYSTEM ---
+            function createLeaf() {
+                const leaf = document.createElement('span');
+                leaf.className = 'leaf material-symbols-outlined';
+                leaf.innerHTML = 'eco';
+                leaf.style.fontSize = `${Math.random() * 40 + 40}px`;
+
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+
+                leaf.style.left = `${x}%`;
+                leaf.style.top = `${y}%`;
+
+                const leafData = {
+                    el: leaf,
+                    x: x,
+                    y: y,
+                    rotation: Math.random() * 360,
+                    speedX: (Math.random() - 0.5) * 0.02,
+                    speedY: (Math.random() - 0.5) * 0.02,
+                    rotateSpeed: (Math.random() - 0.5) * 0.1,
+                    parallax: Math.random() * 0.15 + 0.05
+                };
+
+                leafContainer.appendChild(leaf);
+                return leafData;
+            }
+
+            for (let i = 0; i < leafCount; i++) {
+                leaves.push(createLeaf());
+            }
+
+            // --- ANIMATION LOOP ---
+            function animate() {
+                const currentScrollY = window.scrollY;
+                const scrollDelta = currentScrollY - lastScrollY;
+
+                // Update bubbles
+                bubbles.forEach((bubble) => {
+                    if (bubble.dataset.popped === "true") return;
+
+                    let currentY = parseFloat(bubble.dataset.y);
+                    const speed = parseFloat(bubble.dataset.speed);
+
+                    // Float up naturally
+                    currentY -= speed;
+
+                    // Scroll interaction: bubble reacts to scroll speed
+                    currentY -= scrollDelta * 0.05;
+
+                    // Reset bubble if off top
+                    if (currentY < -10) {
+                        currentY = 110;
+                        bubble.style.left = `${Math.random() * 100}%`;
+                    }
+
+                    // Pop logic: random chance to pop when scrolling past fast
+                    if (Math.abs(scrollDelta) > 50 && Math.random() > 0.98) {
+                        popBubble(bubble);
+                    }
+
+                    bubble.dataset.y = currentY;
+                    bubble.style.transform = `translateY(${currentY}vh)`;
+                });
+
+                // Update leaves (Parallax & Drifting)
+                leaves.forEach(leaf => {
+                    // Gentle breeze drift
+                    leaf.x += leaf.speedX;
+                    leaf.y += leaf.speedY;
+                    leaf.rotation += leaf.rotateSpeed;
+
+                    // Loop leaves around screen
+                    if (leaf.x > 110) leaf.x = -10;
+                    if (leaf.x < -10) leaf.x = 110;
+                    if (leaf.y > 110) leaf.y = -10;
+                    if (leaf.y < -10) leaf.y = 110;
+
+                    // Parallax shift based on scroll
+                    const scrollEffect = currentScrollY * leaf.parallax;
+
+                    leaf.el.style.transform = `translate(${leaf.x}vw, calc(${leaf.y}vh - ${scrollEffect}px)) rotate(${leaf.rotation}deg)`;
+                });
+
+                lastScrollY = currentScrollY;
+                requestAnimationFrame(animate);
+            }
+
+            function popBubble(bubble) {
+                bubble.dataset.popped = "true";
+                bubble.classList.add('bubble-pop');
+                setTimeout(() => {
+                    bubble.classList.remove('bubble-pop');
+                    bubble.dataset.popped = "false";
+                    bubble.dataset.y = 110;
+                    bubble.style.left = `${Math.random() * 100}%`;
+                }, 400);
+            }
+
+            // Trigger pop on hover for extra interactivity
+            bubbleContainer.addEventListener('mouseover', (e) => {
+                if (e.target.classList.contains('bubble')) {
+                    popBubble(e.target);
+                }
+            });
+
+            animate();
+        });
+    </script>
+    <style>
+        /* ── Blob morph ── */
+        .organic-shape {
+            border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
+            animation:
+                blobMorph 8s ease-in-out infinite,
+                floatImage 7s ease-in-out infinite;
+            will-change: transform, border-radius;
         }
 
-        // Trigger pop on hover for extra interactivity
-        bubbleContainer.addEventListener('mouseover', (e) => {
-            if (e.target.classList.contains('bubble')) {
-                popBubble(e.target);
+        @keyframes blobMorph {
+            0% {
+                border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
             }
-        });
 
-        animate();
-    });
-</script>
-</body></html>
+            33% {
+                border-radius: 40% 60% 30% 70% / 60% 40% 70% 50%;
+            }
+
+            66% {
+                border-radius: 70% 30% 50% 50% / 40% 70% 60% 40%;
+            }
+
+            100% {
+                border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
+            }
+        }
+
+        /* ── ugyanaz a cinematic lebegés mint a növényeken ── */
+    </style>
+</body>
+
+</html>
