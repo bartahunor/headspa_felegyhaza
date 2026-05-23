@@ -4,7 +4,7 @@ import bgImage from "../../assets/mountain_bg.png";
 import midImage from "../../assets/buddha_at_lake2.png";
 import fgImage from "../../assets/lush_plants3.png";
 
-export default function ParallaxHeroSection() {
+export default function ParallaxHeroMobile() {
   const sectionRef = useRef(null);
   const [progress, setProgress] = useState(0);
 
@@ -29,18 +29,20 @@ export default function ParallaxHeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const bgY  = progress * -150;
-  const midY = progress * -100;
-  const fgY  = progress * -60;
+  // Mobilon kisebb szorzók — kisebb képernyő, finomabb mozgás
+  const bgY  = progress * -60;
+  const midY = progress * -40;
+  const fgY  = progress * -20;
 
   const layerStyle = (translateY) => ({
     position: "absolute",
     left: 0,
-    top: "50%",
+    top: 0,
     width: "100%",
-    height: "auto",
-    objectFit: "contain",
-    transform: `translateY(calc(-50% + ${translateY}px))`,
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "center",
+    transform: `translateY(${translateY}px)`,
     willChange: "transform",
   });
 
@@ -48,7 +50,7 @@ export default function ParallaxHeroSection() {
     <>
       <section
         ref={sectionRef}
-        style={{ height: "300vh", position: "relative" }}
+        style={{ height: "250vh", position: "relative", backgroundColor: "#803b3b" }}
       >
         <div
           style={{
@@ -58,11 +60,11 @@ export default function ParallaxHeroSection() {
             overflow: "hidden",
           }}
         >
-          <img src={bgImage}  alt="Background"    style={layerStyle(bgY)}  />
+          <img src={bgImage}  alt="Background"   style={layerStyle(bgY)}  />
           <img src={midImage} alt="Middle Layer"  style={layerStyle(midY)} />
           <img src={fgImage} alt="Foreground" style={{
             ...layerStyle(fgY),
-            top: "80%",
+            objectPosition: "center bottom",
           }} />
         </div>
       </section>
