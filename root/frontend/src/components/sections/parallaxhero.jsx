@@ -59,7 +59,10 @@ export default function ParallaxHeroSection() {
           }}
         >
           <img src={bgImage}  alt="Background"    style={layerStyle(bgY)}  />
-          <img src={midImage} alt="Middle Layer"  style={layerStyle(midY)} />
+          <img src={midImage} alt="Middle Layer"  style={{
+            ...layerStyle(midY), 
+            top: "60%",
+          }} />
           <img src={fgImage} alt="Foreground" style={{
             ...layerStyle(fgY),
             top: "80%",
