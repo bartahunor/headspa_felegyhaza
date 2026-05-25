@@ -3,7 +3,7 @@ import WreathImg from "../../assets/Gemini_Generated_Image_dsaos6dsaos6dsao.png"
 
 export default function AboutGutIldiko() {
   return (
-    <section className="py-40 bg-surface-container-low px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] overflow-hidden">
+    <section className="py-16 bg-surface-container-low px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] overflow-hidden">
       <div className="max-w-[var(--spacing-container-max)] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
 

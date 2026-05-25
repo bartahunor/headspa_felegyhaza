@@ -3,6 +3,7 @@ import NavBar from './components/layout/NavBar.jsx'
 import Footer from './components/layout/Footer.jsx'
 import HomePage from './pages/HomePage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
+import FaqPage from './pages/FaqPage.jsx'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/rolunk" element={<AboutPage />} />
+        <Route path="/gyik" element={<FaqPage />} />
         {/* Később ide jönnek az újabb oldalak: */}
         {/* <Route path="/szolgaltatasok" element={<ServicesPage />} /> */}
       </Routes>

@@ -1,25 +1,38 @@
 import { useEffect, useRef, useState } from "react";
 
-import bgImage from "../../assets/mountain_bg.png";
-import midImage from "../../assets/buddha_at_lake2.png";
-import fgImage from "../../assets/lush_plants3.png";
+import bgImage  from "../../assets/mountain_bg2.png";
+import midImage from "../../assets/buddha_at_lake5.png";
+import fgImage  from "../../assets/lush_plants4.png";
 
 export default function ParallaxHeroSection() {
   const sectionRef = useRef(null);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress]     = useState(0);
+  const [midReady, setMidReady]     = useState(false);
+  const [fgReady,  setFgReady]      = useState(false);
 
+  /* ── Entrance animáció – egymás után csúszik be alulról ── */
+  useEffect(() => {
+    const midTimer = setTimeout(() => setMidReady(true), 100);   // kis késleltetés hogy a bg már látszódjon
+    const fgTimer  = setTimeout(() => setFgReady(true),  300);   // fg 400ms-sel a mid után
+    return () => {
+      clearTimeout(midTimer);
+      clearTimeout(fgTimer);
+    };
+  }, []);
+
+  /* ── Scroll parallax ── */
   useEffect(() => {
     const handleScroll = () => {
       const section = sectionRef.current;
       if (!section) return;
 
-      const rect = section.getBoundingClientRect();
+      const rect          = section.getBoundingClientRect();
       const sectionHeight = section.offsetHeight;
       const viewportHeight = window.innerHeight;
 
-      const scrolled = -rect.top;
+      const scrolled   = -rect.top;
       const scrollable = sectionHeight - viewportHeight;
-      const p = Math.min(Math.max(scrolled / scrollable, 0), 1);
+      const p          = Math.min(Math.max(scrolled / scrollable, 0), 1);
 
       setProgress(p);
     };
@@ -29,14 +42,12 @@ export default function ParallaxHeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const bgY  = progress * -150;
+  const bgY  = progress * -130;
   const midY = progress * -100;
   const fgY  = progress * -60;
 
+  /* ── Parallax: a képet pozicionálja scroll alapján ── */
   const layerStyle = (translateY) => ({
-    position: "absolute",
-    left: 0,
-    top: "50%",
     width: "100%",
     height: "auto",
     objectFit: "contain",
@@ -44,31 +55,61 @@ export default function ParallaxHeroSection() {
     willChange: "transform",
   });
 
+  /* ── Entrance: csak a wrapper div-en van, nem érinti a parallax transform-ot ── */
+  const wrapperStyle = (ready, top) => ({
+    position: "absolute",
+    left: 0,
+    top: top,
+    width: "100%",
+    transform: `translateY(${ready ? "0px" : "120px"})`,
+    transition: ready
+      ? "transform 1s cubic-bezier(0.22, 1, 0.36, 1)"
+      : "none",
+  });
+
   return (
-    <>
-      <section
-        ref={sectionRef}
-        style={{ height: "300vh", position: "relative" }}
+    <section
+      ref={sectionRef}
+      style={{ height: "300vh", position: "relative" }}
+    >
+      <div
+        style={{
+          position: "sticky",
+          top: 0,
+          height: "100vh",
+          overflow: "hidden",
+        }}
       >
-        <div
+        {/* Háttér – azonnal látszik, nincs entrance wrapper */}
+        <img
+          src={bgImage}
+          alt="Background"
           style={{
-            position: "sticky",
-            top: 0,
-            height: "100vh",
-            overflow: "hidden",
+            position: "absolute",
+            left: 0,
+            top: "50%",
+            ...layerStyle(bgY),
           }}
-        >
-          <img src={bgImage}  alt="Background"    style={layerStyle(bgY)}  />
-          <img src={midImage} alt="Middle Layer"  style={{
-            ...layerStyle(midY), 
-            top: "60%",
-          }} />
-          <img src={fgImage} alt="Foreground" style={{
-            ...layerStyle(fgY),
-            top: "80%",
-          }} />
+        />
+
+        {/* Középső réteg – entrance wrapper + parallax a képen */}
+        <div style={wrapperStyle(midReady, "60%")}>
+          <img
+            src={midImage}
+            alt="Middle Layer"
+            style={layerStyle(midY)}
+          />
         </div>
-      </section>
-    </>
+
+        {/* Előtér – entrance wrapper + parallax a képen */}
+        <div style={wrapperStyle(fgReady, "90%")}>
+          <img
+            src={fgImage}
+            alt="Foreground"
+            style={layerStyle(fgY)}
+          />
+        </div>
+      </div>
+    </section>
   );
 }

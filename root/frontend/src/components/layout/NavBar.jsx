@@ -5,7 +5,7 @@ const navLinks = [
   { label: "Rólunk", to: "/rolunk" },
   { label: "Szolgáltatások", to: "/szolgaltatasok" },
   { label: "Élmény", to: "/elmeny" },
-  { label: "Vélemények", to: "/velemenyek" },
+  { label: "GYIK", to: "/gyik" },
 ]
 
 export default function NavBar() {
