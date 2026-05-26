@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ParallaxHeroSection from "../components/sections/parallaxhero.jsx";
 import ParallaxHeroMobile from "../components/sections/ParallaxHeroMobile.jsx";
 import WorkflowSection from "../components/sections/Workflow.jsx";
+import TestimonialSection from "../components/sections/TestimonalSection.jsx";
 
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -22,6 +23,7 @@ export default function HomePage() {
         <h2 className="text-4xl text-stone-600">Teszt szekció</h2>
       </section>
       <WorkflowSection />
+      <TestimonialSection />
     </main>
   );
 }

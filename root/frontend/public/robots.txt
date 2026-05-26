@@ -1,0 +1,6 @@
+# Keresőmotorok
+User-agent: *
+Allow: /
+
+# Sitemap helye (Google-nek fontos!)
+Sitemap: https://headspa-felegyhaza.hu/sitemap.xml //URL

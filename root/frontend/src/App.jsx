@@ -1,11 +1,14 @@
-import { Routes, Route } from 'react-router-dom'
-import NavBar from './components/layout/NavBar.jsx'
-import Footer from './components/layout/Footer.jsx'
-import HomePage from './pages/HomePage.jsx'
-import AboutPage from './pages/AboutPage.jsx'
-import FaqPage from './pages/FaqPage.jsx'
+import { Routes, Route } from 'react-router-dom';
+import { localBusinessSchema } from "./seo/schema";
+import { useJsonLd } from "./seo/useJsonLd";
+import NavBar from './components/layout/NavBar.jsx';
+import Footer from './components/layout/Footer.jsx';
+import HomePage from './pages/HomePage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import FaqPage from './pages/FaqPage.jsx';
 
 function App() {
+  useJsonLd(localBusinessSchema);
   return (
     <>
       <NavBar />
