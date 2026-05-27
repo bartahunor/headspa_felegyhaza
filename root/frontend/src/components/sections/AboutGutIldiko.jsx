@@ -19,12 +19,12 @@ export default function AboutGutIldiko() {
             />
 
             {/* Fő kép – blob formában */}
-            <div className="w-full h-full about-blob overflow-hidden border-[16px] border-[#F5F3EE] shadow-xl relative z-10 about-image-float">
-              <img
-                src={GutIldikoImg}
-                alt="Illóolajok és spa hangulat"
-                className="w-full h-full object-cover"
-              />
+            <div className="w-full h-full about-blob overflow-hidden border-[16px] border-[#F5F3EE] shadow-xl relative z-10">
+                <img
+                    src={GutIldikoImg}
+                    alt="Illóolajok és spa hangulat"
+                    className="w-full h-full object-cover scale-[1.02]"
+                />
             </div>
 
             {/* Glass-card */}
