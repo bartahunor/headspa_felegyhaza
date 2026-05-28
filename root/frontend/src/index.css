@@ -216,3 +216,6 @@ section, header, footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+.reveal-on-scroll.delay-100 { transition-delay: 0.1s; }
+.reveal-on-scroll.delay-200 { transition-delay: 0.2s; }
