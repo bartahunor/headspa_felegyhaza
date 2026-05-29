@@ -2,7 +2,7 @@ export default function ServiceCard({ service }) {
     return (
 
         <div
-            className="reveal-on-scroll group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+            className="group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
             <div
                 className="absolute -right-8 -bottom-8 w-40 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity pointer-events-none rotate-12">
                 <span

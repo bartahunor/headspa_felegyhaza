@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import ServiceCard from "../ui/ServiceCards";
+import ServiceCard from "../ui/ServiceCard.jsx";
 
 
 const services = [
@@ -54,6 +54,11 @@ export default function ServicesSection() {
         className="py-40 px-[20px] md:px-[80px] relative overflow-hidden"
         style={{
           background: "linear-gradient(135deg, #172c21 0%, #2d4236 50%, #1d2c1c 100%)",
+          maskImage: "linear-gradient(to bottom, transparent 0%, black 120px)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 120px)",
+          marginTop: "-120px",  // ez húzza rá a hero alá
+          position: "relative",
+          zIndex: 10,
         }}
       >
         {/* Háttér dekoratív blur foltok */}

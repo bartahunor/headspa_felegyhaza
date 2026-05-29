@@ -5,8 +5,11 @@ import WorkflowSection from "../components/sections/Workflow.jsx";
 import TestimonialSection from "../components/sections/TestimonalSection.jsx";
 import WhatIsHeadSpa from "../components/sections/WhatIsHeadSpa.jsx";
 import ServicesSection from "../components/sections/ServicesSection.jsx";
+import ArriveSection from "../components/sections/ArriveSection.jsx";
+import useLenis from "../hooks/useLenis";
 
 export default function HomePage() {
+  useLenis();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -20,12 +23,7 @@ export default function HomePage() {
       {isMobile ? <ParallaxHeroMobile /> : <ParallaxHeroSection />}
       <ServicesSection />
       <WhatIsHeadSpa />
-      <section
-        className="relative min-h-screen bg-stone-100 flex items-center justify-center"
-        style={{ zIndex: -10 }}
-      >
-        <h2 className="text-4xl text-stone-600">Teszt szekció</h2>
-      </section>
+      <ArriveSection />
       <WorkflowSection />
       <TestimonialSection />
     </main>

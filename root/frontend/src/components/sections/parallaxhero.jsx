@@ -43,9 +43,9 @@ export default function ParallaxHeroSection() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const bgY  = progress * -130;
-  const midY = progress * -100;
-  const fgY  = progress * -60;
+  const bgY  = progress * -100;
+  const midY = progress * -90;
+  const fgY  = progress * -80;
 
   // Csak akkor számít a scroll fade, ha az entrance már lefutott
   const textFade = textDone ? Math.max(0, 1 - progress / 0.3) : 1;
