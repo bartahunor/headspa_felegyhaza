@@ -65,7 +65,11 @@
                         "on-tertiary-fixed-variant": "#3b4b39",
                         "on-tertiary": "#ffffff",
                         "inverse-surface": "#30312e",
-                        "on-tertiary-fixed": "#101f10"
+                        "on-tertiary-fixed": "#101f10",
+                        "sage-dark": "#2d4236",
+                        "sage-light": "#d0e8d7",
+                        "champagne": "#f7e0b7",
+                        "eucalyptus": "#4d6356"
                     },
                     "borderRadius": {
                         "DEFAULT": "0.25rem",
@@ -172,6 +176,119 @@
 
         .floating-ritual-card:hover {
             transform: translateY(-8px);
+        }
+
+        .cinematic-card {
+            position: relative;
+
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-origin: center center;
+
+            filter: blur(1px) brightness(0.85);
+            transform: scale(0.9);
+
+            opacity: 0.75;
+        }
+
+        .cinematic-card.active {
+            filter: blur(0);
+            transform: scale(1);
+            opacity: 1;
+
+            z-index: 40;
+
+            box-shadow:
+                0 0 60px rgba(180, 204, 188, 0.25);
+
+            border-color:
+                rgba(247, 224, 183, 0.25);
+        }
+
+        .cinematic-card.active::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(144, 238, 144, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-number {
+            font-family: 'Bodoni Moda';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 35vw;
+            line-height: 1;
+            color: rgba(247, 224, 183, 0.03);
+            font-weight: 800;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .parallax-leaf {
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .light-mote {
+            position: absolute;
+            border-radius: 9999px;
+            pointer-events: none;
+
+            background: radial-gradient(circle,
+                    rgba(247, 224, 183, 0.95) 0%,
+                    rgba(247, 224, 183, 0.35) 50%,
+                    transparent 100%);
+
+            filter: blur(2px);
+
+            animation: floatMote linear forwards;
+        }
+
+        @keyframes floatMote {
+            0% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-300px) translateX(40px);
+                opacity: 0;
+            }
+        }
+
+        #zen-panel {
+            transform: translateY(80px) scale(0.96);
+            opacity: 0;
+            filter: blur(6px);
+            transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: transform, opacity, filter;
+        }
+
+        #zen-panel.visible {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            filter: blur(0);
         }
     </style>
 </head>
@@ -303,170 +420,241 @@
         </div>
     </section>
     <!-- Detailed Services Section -->
-    <section class="py-40 px-margin-mobile md:px-margin-desktop bg-surface-container-low/50 relative overflow-hidden">
-        <div class="max-w-container-max mx-auto relative z-10">
-            <div class="text-center space-y-4 mb-20">
-                <h2 class="font-headline-lg text-headline-lg text-primary">Szolgáltatásaink</h2>
-                <div class="w-24 h-[1px] bg-primary/20 mx-auto"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
+    <section class="py-56 bg-sage-dark relative overflow-hidden" id="services">
+        <!-- Animated Light Particles -->
+        <div class="absolute inset-0 z-0 pointer-events-none" id="light-motes-container"></div>
+        <div class="flex flex-col items-center text-center mb-6 reveal-on-scroll">
+            <h2 class="font-headline-lg text-[64px] text-white leading-none mb-5 italic">
+                Szolgáltatásaink
+            </h2>
+        </div>
+        <!-- Cinematic Carousel -->
+        <div class="relative min-h-[350px] flex items-center">
+            <div class="flex gap-10 overflow-x-auto no-scrollbar scroll-smooth py-16 px-[10vw] items-center"
+                id="service-carousel">
+                <!-- Card 1 -->
                 <div
-                    class="reveal-on-scroll group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                    <div
-                        class="absolute -right-8 -bottom-8 w-40 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity pointer-events-none rotate-12">
-                        <img alt="Botanical leaf" class="w-full h-auto"
-                            src="https://lh3.googleusercontent.com/aida/ADBb0uh5qW-Ab1oefZuFBC_EWw2-8OVObgd1Lm-Wdkep75gW77XkZqo7KiUqunfvaY1SPsLFwpHbSAaN7pIj0yvlLfsLVVgBD_9ObAvNhW4gLg-MSORf5FlYjhBWWrEf5PqPotynP0Ygj0uukV8EXUU8KjD3xbKN6uHmR7thlS_yFSj-ER5zFN6vGR3wZGvFDqSAscJ26A1JcJylSNg5JpxqW47E7-d8RGdjeLgIgGJcx_naSx77KNq94J8-wsU" />
+                    class="cinematic-card flex-none w-[350px] h-[420px] glass-card rounded-[50px] p-12 flex flex-col justify-between border-white/5 cursor-pointer">
+                    <div class="space-y-12">
+                        <span class="material-symbols-outlined text-5xl text-champagne">spa</span>
+                        <h3 class="font-headline-md text-2xl text-white">RELAX 30' - Fejbőr frissítő Hajrituálé</h3>
                     </div>
-                    <div class="relative z-10">
-                        <div
-                            class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-primary">
-                            <span class="material-symbols-outlined">bath_private</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-primary mb-2">RELAX 30' - Fejbőr frissítő Hajrituálé</h3>
-                        
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">schedule</span>
-                             30 perc + hajformázás
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">paid</span>
-                            14 900,-Ft
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+
+                        <div class="space-y-4">
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Időtartam
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    30 perc + hajformázás
+                                </p>
+                            </div>
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Ár
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    14 990 Ft
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- Service 2 -->
+                <!-- Card 2 -->
                 <div
-                    class="reveal-on-scroll delay-100 group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                    <div
-                        class="absolute -right-8 -bottom-8 w-40 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity pointer-events-none rotate-45">
-                        <img alt="Botanical leaf" class="w-full h-auto"
-                            src="https://lh3.googleusercontent.com/aida/ADBb0ui6bhy9STLmmiZVYhFkJQKqsUtmwataz1ov8xOVzkbNPgWGMP9Qa2RP9j3z0lhLf9VLC5cnXAqZHx3XUmsaYrBSyiylo4frB-fX8RKKvQIqu9W84hF8_bu76_qwMS62JFn4Zza5G7Igx7ppe3rfxvOwM0SjMkHXIVcXpnENr9aJWSaMmXYfpnD47spZUGG5XVglmlNFLyc9Q_izWnuUXIrNM_ogOvrTyFdbQTqw0Ml3PKcxujYpE78KxA" />
+                    class="cinematic-card flex-none w-[350px] h-[420px] glass-card rounded-[50px] p-12 flex flex-col justify-between border-white/5 cursor-pointer">
+                    <div class="space-y-12">
+                        <span class="material-symbols-outlined text-5xl text-champagne">spa</span>
+                        <h3 class="font-headline-md text-2xl text-white">Oil Control Scalp - Zsírosodás elleni rituálé
+                        </h3>
                     </div>
-                    <div class="relative z-10">
-                        <div
-                            class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-primary">
-                            <span class="material-symbols-outlined">self_care</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-primary mb-2">Oil Control Scalp - Zsírosodás elleni rituálé</h3>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">schedule</span>
-                            60 perc + hajformázás
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">paid</span>
-                            24 900,-Ft
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+
+                        <div class="space-y-4">
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Időtartam
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    60 perc + hajformázás
+                                </p>
+                            </div>
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Ár
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    24 900 Ft
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- Service 3 -->
+                <!-- Card 3 -->
                 <div
-                    class="reveal-on-scroll delay-200 group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                    <div
-                        class="absolute -right-8 -bottom-8 w-40 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity pointer-events-none -rotate-12">
-                        <img alt="Botanical leaf" class="w-full h-auto"
-                            src="https://lh3.googleusercontent.com/aida/ADBb0uh5qW-Ab1oefZuFBC_EWw2-8OVObgd1Lm-Wdkep75gW77XkZqo7KiUqunfvaY1SPsLFwpHbSAaN7pIj0yvlLfsLVVgBD_9ObAvNhW4gLg-MSORf5FlYjhBWWrEf5PqPotynP0Ygj0uukV8EXUU8KjD3xbKN6uHmR7thlS_yFSj-ER5zFN6vGR3wZGvFDqSAscJ26A1JcJylSNg5JpxqW47E7-d8RGdjeLgIgGJcx_naSx77KNq94J8-wsU" />
+                    class="cinematic-card flex-none w-[350px] h-[420px] glass-card rounded-[50px] p-12 flex flex-col justify-between border-white/5 cursor-pointer">
+                    <div class="space-y-12">
+                        <span class="material-symbols-outlined text-5xl text-champagne">spa</span>
+                        <h3 class="font-headline-md text-2xl text-white">Healthy Scalp - Korpásodás elleni rituálé</h3>
                     </div>
-                    <div class="relative z-10">
-                        <div
-                            class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-primary">
-                            <span class="material-symbols-outlined">waves</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-primary mb-2">Healthy Scalp - Korpásodás elleni rituálé</h3>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">schedule</span>
-                            60 perc + hajformázás
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">paid</span>
-                            24 900,-Ft
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+
+                        <div class="space-y-4">
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Időtartam
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    60 perc + hajformázás
+                                </p>
+                            </div>
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Ár
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    24 900 Ft
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- Service 4 -->
+                <!-- Card 4 -->
                 <div
-                    class="reveal-on-scroll group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                    <div
-                        class="absolute -right-8 -bottom-8 w-40 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity pointer-events-none rotate-90">
-                        <img alt="Botanical leaf" class="w-full h-auto"
-                            src="https://lh3.googleusercontent.com/aida/ADBb0ui6bhy9STLmmiZVYhFkJQKqsUtmwataz1ov8xOVzkbNPgWGMP9Qa2RP9j3z0lhLf9VLC5cnXAqZHx3XUmsaYrBSyiylo4frB-fX8RKKvQIqu9W84hF8_bu76_qwMS62JFn4Zza5G7Igx7ppe3rfxvOwM0SjMkHXIVcXpnENr9aJWSaMmXYfpnD47spZUGG5XVglmlNFLyc9Q_izWnuUXIrNM_ogOvrTyFdbQTqw0Ml3PKcxujYpE78KxA" />
+                    class="cinematic-card flex-none w-[350px] h-[420px] glass-card rounded-[50px] p-12 flex flex-col justify-between border-white/5 cursor-pointer">
+                    <div class="space-y-12">
+                        <span class="material-symbols-outlined text-5xl text-champagne">spa</span>
+                        <h3 class="font-headline-md text-2xl text-white">Prémium Head Spa Rituálé - 90 perc</h3>
                     </div>
-                    <div class="relative z-10">
-                        <div
-                            class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-primary">
-                            <span class="material-symbols-outlined">psychiatry</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-primary mb-2">Prémium Head Spa Rituálé - 90 perc</h3>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">schedule</span>
-                            90 perc + hajformázás
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">paid</span>
-                            32 900,-Ft
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+
+                        <div class="space-y-4">
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Időtartam
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    90 perc + hajformázás
+                                </p>
+                            </div>
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Ár
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    32 900 Ft
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- Service 5 -->
+                <!-- Card 5 -->
                 <div
-                    class="reveal-on-scroll delay-100 group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                    <div
-                        class="absolute -right-8 -bottom-8 w-40 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity pointer-events-none">
-                        <img alt="Botanical leaf" class="w-full h-auto"
-                            src="https://lh3.googleusercontent.com/aida/ADBb0uh5qW-Ab1oefZuFBC_EWw2-8OVObgd1Lm-Wdkep75gW77XkZqo7KiUqunfvaY1SPsLFwpHbSAaN7pIj0yvlLfsLVVgBD_9ObAvNhW4gLg-MSORf5FlYjhBWWrEf5PqPotynP0Ygj0uukV8EXUU8KjD3xbKN6uHmR7thlS_yFSj-ER5zFN6vGR3wZGvFDqSAscJ26A1JcJylSNg5JpxqW47E7-d8RGdjeLgIgGJcx_naSx77KNq94J8-wsU" />
+                    class="cinematic-card flex-none w-[350px] h-[420px] glass-card rounded-[50px] p-12 flex flex-col justify-between border-white/5 cursor-pointer">
+                    <div class="space-y-12">
+                        <span class="material-symbols-outlined text-5xl text-champagne">spa</span>
+                        <h3 class="font-headline-md text-2xl text-white">NOURISH – KERATÉ VAJAS Rituálé</h3>
                     </div>
-                    <div class="relative z-10">
-                        <div
-                            class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-primary">
-                            <span class="material-symbols-outlined">auto_awesome</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-primary mb-2">NOURISH – KERATÉ VAJAS Rituálé</h3>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">schedule</span>
-                            60 perc + hajformázás
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">paid</span>
-                            24 900,-Ft
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+
+                        <div class="space-y-4">
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Időtartam
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    60 perc + hajformázás
+                                </p>
+                            </div>
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Ár
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    24 900 Ft
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <!-- Service 6 -->
+                <!-- Card 6 -->
                 <div
-                    class="reveal-on-scroll delay-200 group relative bg-white/60 backdrop-blur-sm p-10 rounded-[40px] border border-outline-variant/20 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 overflow-hidden">
-                    <div
-                        class="absolute -right-8 -bottom-8 w-40 opacity-[0.07] group-hover:opacity-[0.12] transition-opacity pointer-events-none rotate-[200deg]">
-                        <img alt="Botanical leaf" class="w-full h-auto"
-                            src="https://lh3.googleusercontent.com/aida/ADBb0ui6bhy9STLmmiZVYhFkJQKqsUtmwataz1ov8xOVzkbNPgWGMP9Qa2RP9j3z0lhLf9VLC5cnXAqZHx3XUmsaYrBSyiylo4frB-fX8RKKvQIqu9W84hF8_bu76_qwMS62JFn4Zza5G7Igx7ppe3rfxvOwM0SjMkHXIVcXpnENr9aJWSaMmXYfpnD47spZUGG5XVglmlNFLyc9Q_izWnuUXIrNM_ogOvrTyFdbQTqw0Ml3PKcxujYpE78KxA" />
+                    class="cinematic-card flex-none w-[350px] h-[420px] glass-card rounded-[50px] p-12 flex flex-col justify-between border-white/5 cursor-pointer">
+                    <div class="space-y-12">
+                        <span class="material-symbols-outlined text-5xl text-champagne">spa</span>
+                        <h3 class="font-headline-md text-2xl text-white">RELAX 30' - Fejbőr frissítő Hajrituálé</h3>
                     </div>
-                    <div class="relative z-10">
-                        <div
-                            class="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/5 text-primary">
-                            <span class="material-symbols-outlined">water_drop</span>
+                    <div class="flex items-center justify-between border-t border-white/10 pt-6">
+
+                        <div class="space-y-4">
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Időtartam
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    30 perc + hajformázás
+                                </p>
+                            </div>
+
+                            <div>
+                                <span class="text-[12px] uppercase tracking-[0.2em] text-champagne/50 block mb-1">
+                                    Ár
+                                </span>
+
+                                <p class="text-lg text-white font-light">
+                                    14 990 Ft
+                                </p>
+                            </div>
+
                         </div>
-                        <h3 class="font-headline-md text-headline-md text-primary mb-2">ENERGY – Hajhullás elleni rituálé</h3>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">schedule</span>
-                            60 perc + hajformázás
-                        </div>
-                        <div
-                            class="flex items-center gap-2 text-primary font-bold font-label-sm uppercase tracking-widest">
-                            <span class="material-symbols-outlined text-sm">schedule</span>
-                            24 900,-Ft
-                        </div>
-                        
                     </div>
+                </div>
+                <!-- Controls -->
+                <div class="absolute inset-x-0 bottom-0 flex justify-between px-5 items-center pointer-events-none">
+                    <button
+                        class="w-14 h-14 rounded-full glass-card border-white/10 flex items-center justify-center text-white/50 hover:text-white pointer-events-auto hover:bg-white/10 transition-all"
+                        id="cin-prev">
+                        <span class="material-symbols-outlined text-3xl">west</span>
+                    </button>
+                    <div class="flex gap-4 items-center pointer-events-auto">
+                        <div class="w-64 h-[2px] bg-white/10 relative overflow-hidden rounded-full">
+                            <div class="absolute top-0 left-0 h-full bg-champagne transition-all duration-700"
+                                id="cin-progress" style="width: 25%"></div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-14 h-14 rounded-full glass-card border-white/10 flex items-center justify-center text-white/50 hover:text-white pointer-events-auto hover:bg-white/10 transition-all"
+                        id="cin-next">
+                        <span class="material-symbols-outlined text-3xl">east</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -522,66 +710,66 @@
     </section>
 
     <!-- ÉRKEZÉÉÉÉS -->
-    <section class="py-40 px-margin-mobile md:px-margin-desktop bg-white relative overflow-hidden">
-        <div class="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
-            <span class="material-symbols-outlined text-[120px] text-on-tertiary-container">eco</span>
+    <section
+        class="py-40 px-margin-mobile md:px-margin-desktop bg-[#f5f7f2] relative overflow-hidden flex items-center justify-center">
+
+        <!-- ambient nature blobs -->
+        <div class="absolute w-[600px] h-[600px] bg-green-200/20 blur-3xl rounded-full top-[-200px] left-[-200px]">
         </div>
-        <div class="absolute bottom-0 left-0 p-12 opacity-10 pointer-events-none">
-            <span class="material-symbols-outlined text-[100px] text-on-tertiary-container rotate-45">eco</span>
+        <div
+            class="absolute w-[700px] h-[700px] bg-emerald-300/20 blur-3xl rounded-full bottom-[-250px] right-[-250px]">
         </div>
-        <div class="max-w-container-max mx-auto">
-            <div class="text-center space-y-4 mb-20">
-                <h2 class="font-headline-lg text-headline-lg text-primary">Hogyan érkezz hozzánk?</h2>
-                <div class="w-24 h-[1px] bg-on-tertiary-container mx-auto"></div>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-                <!-- Card 1 -->
-                <div
-                    class="reveal-on-scroll floating-ritual-card p-10 bg-background/30 rounded-[40px] border border-outline-variant/10 text-center flex flex-col items-center">
-                    <div class="mb-6">
-                        <span class="material-symbols-outlined text-on-tertiary-container text-5xl">schedule</span>
-                    </div>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Pontos érkezés</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        Kérjük, érkezz pontosan a foglalt időpontodra.
+
+        <div class="max-w-3xl mx-auto text-center relative z-10 reveal">
+
+            <!-- small label -->
+            <p class="tracking-[0.4em] text-xs text-green-800/60 mb-6">
+                ARRIVAL GUIDE
+            </p>
+
+            <!-- title -->
+            <h2 class="text-5xl md:text-6xl font-light text-[#1f2d22] leading-tight">
+                Hogyan érkezz hozzánk?
+            </h2>
+
+            <div class="w-28 h-[1px] bg-green-700/20 mx-auto mt-10"></div>
+
+            <!-- main glass panel -->
+            <div class="mt-16 relative">
+
+                <div class="absolute inset-0 bg-white/40 backdrop-blur-xl rounded-[50px] border border-white/40"></div>
+
+                <div class="relative p-14 md:p-20">
+
+                    <p class="text-lg md:text-xl leading-loose text-[#4a5a50]">
+                        Érkezz pontosan a foglalt időpontra.
+                        Ha korábban jössz, kérjük várj csendben.
+                        A kezeléshez javasolt smink nélkül érkezni.
                     </p>
-                </div>
-                <!-- Card 2 -->
-                <div
-                    class="reveal-on-scroll floating-ritual-card p-10 bg-background/30 rounded-[40px] border border-outline-variant/10 text-center flex flex-col items-center">
-                    <div class="mb-6">
-                        <span class="material-symbols-outlined text-on-tertiary-container text-5xl">door_front</span>
-                    </div>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Várakozás</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        Korábbi érkezés esetén kérjük, várj az üzlet előtt, amíg érted megyünk.
+
+                    <!-- subtle decorative line -->
+                    <div class="w-16 h-[1px] bg-green-700/30 mx-auto mt-10"></div>
+
+                    <p class="mt-8 text-sm tracking-[0.2em] text-green-800/50">
+                        NYUGALOM • TISZTASÁG • JELENLÉT
                     </p>
-                </div>
-                <!-- Card 3 -->
-                <div
-                    class="reveal-on-scroll floating-ritual-card p-10 bg-background/30 rounded-[40px] border border-outline-variant/10 text-center flex flex-col items-center">
-                    <div class="mb-6">
-                        <span class="material-symbols-outlined text-on-tertiary-container text-5xl">face_6</span>
-                    </div>
-                    <h3 class="font-headline-md text-headline-md text-primary mb-4">Smink nélkül</h3>
-                    <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        A kezelésekre lehetőség szerint smink nélkül érkezz a maximális komfort érdekében.
-                    </p>
+
                 </div>
             </div>
+
         </div>
     </section>
     <!-- mi is az a hs -->
     <section class="relative h-[600px] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop">
         <div class="absolute inset-0 z-0">
             <img alt="Head Spa Experience" class="w-full h-full object-cover object-center"
-                src="ChatGPT Image 2026. máj. 27. 18_06_21.png" />
+                src="ChatGPT Image 2026. máj. 31. 16_45_56.png" />
             <div class="absolute inset-0 bg-black/10"></div>
         </div>
         <div class="max-w-container-max mx-auto w-full relative z-10">
             <div class="reveal-on-scroll glass-card p-10 md:p-16 rounded-[40px] max-w-2xl bg-white/40 backdrop-blur-md border border-white/30 shadow-2xl"
                 id="zen-panel">
-                <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+                <h2 class="font-headline-lg text-4xl md:text-5xl text-primary mb-6">
                     Mi is az a Head Spa?
                 </h2>
                 <div class="w-20 h-1 bg-secondary opacity-30 mb-8"></div>
@@ -944,11 +1132,138 @@
                 }
             });
 
+            const cinCarousel = document.getElementById('service-carousel');
+            const cinCards = document.querySelectorAll('.cinematic-card');
+            const cinPrev = document.getElementById('cin-prev');
+            const cinNext = document.getElementById('cin-next');
+            const cinProgress = document.getElementById('cin-progress');
+            const bgNum = document.getElementById('carousel-bg-num');
+
+            let cinIndex = 0;
+
+            const updateCinematic = () => {
+                cinCards.forEach((card, i) => {
+                    if (i === cinIndex) {
+                        card.classList.add('active');
+                    } else {
+                        card.classList.remove('active');
+                    }
+                });
+
+                // Smooth Scroll to Active
+                const cardCenter = cinCards[cinIndex].offsetLeft + (cinCards[cinIndex].offsetWidth / 2);
+                const carouselCenter = cinCarousel.offsetWidth / 2;
+                cinCarousel.scrollTo({
+                    left: cardCenter - carouselCenter,
+                    behavior: 'smooth'
+                });
+
+                // Update Progress
+                cinProgress.style.width = `${((cinIndex + 1) / cinCards.length) * 100}%`;
+
+                // Update Background Number
+                bgNum.style.opacity = '0';
+                setTimeout(() => {
+                    bgNum.innerText = (cinIndex + 1).toString().padStart(2, '0');
+                    bgNum.style.opacity = '1';
+                }, 400);
+            };
+
+            cinNext.addEventListener('click', () => {
+                cinIndex = (cinIndex + 1) % cinCards.length;
+                updateCinematic();
+            });
+
+            cinPrev.addEventListener('click', () => {
+                cinIndex = (cinIndex - 1 + cinCards.length) % cinCards.length;
+                updateCinematic();
+            });
+
+            cinCards.forEach((card, i) => {
+                card.addEventListener('click', () => {
+                    cinIndex = i;
+                    updateCinematic();
+                });
+            });
+
+            const lightMotesContainer = document.getElementById('light-motes-container');
+
+            function createLightMote() {
+
+                const mote = document.createElement('div');
+
+                mote.classList.add('light-mote');
+
+                const size = Math.random() * 6 + 3;
+
+                mote.style.width = `${size}px`;
+                mote.style.height = `${size}px`;
+
+                mote.style.left = `${Math.random() * 100}%`;
+                mote.style.top = `${Math.random() * 100}%`;
+
+                const duration = Math.random() * 8000 + 8000;
+
+                mote.style.animationDuration = `${duration}ms`;
+
+                const driftX = (Math.random() - 0.5) * 120;
+                const driftY = (Math.random() - 0.5) * 120;
+
+                mote.style.setProperty('--driftX', `${driftX}px`);
+                mote.style.setProperty('--driftY', `${driftY}px`);
+
+                lightMotesContainer.appendChild(mote);
+
+                setTimeout(() => {
+                    mote.remove();
+                }, duration);
+            }
+
+
+            const panel = document.querySelector("#zen-panel");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            panel.classList.add("visible");
+                        }
+                    });
+                },
+                { threshold: 0.35 }
+            );
+
+            const el = document.querySelector(".reveal");
+
+            const observerr = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            el.style.opacity = 0;
+            el.style.transform = "translateY(30px)";
+            el.style.transition = "all 1s cubic-bezier(0.2, 0.8, 0.2, 1)";
+
+            observerr.observe(el);
+            observer.observe(panel);
+
+            setInterval(createLightMote, 180);
+
             // Initial check
             revealOnScroll();
 
+
+
+
             // Start animations
             animate();
+
+
+
 
         });
     </script>
