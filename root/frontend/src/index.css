@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
+  /* ── Alap színek ── */
   --color-primary: #172c21;
   --color-background: #fbf9f4;
   --color-surface: #fbf9f4;
@@ -54,24 +54,38 @@
   --color-on-error: #ffffff;
   --color-on-error-container: #93000a;
 
-  /* Spacing */
+  /* ── Brand színek (hiányoztak!) ── */
+  --color-sage-dark: #2d4236;
+  --color-sage-light: #d0e8d7;
+  --color-champagne: #f7e0b7;
+  --color-eucalyptus: #4d6356;
+
+  /* ── Spacing ── */
   --spacing-margin-mobile: 20px;
   --spacing-gutter: 24px;
   --spacing-margin-desktop: 80px;
   --spacing-container-max: 1200px;
   --spacing-unit: 8px;
 
-  /* Border radius */
+  /* ── Border radius ── */
   --radius-DEFAULT: 0.25rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   --radius-full: 9999px;
 
-  /* Font families */
+  /* ── Font families ── */
   --font-bodoni: "Bodoni Moda", serif;
   --font-manrope: "Manrope", sans-serif;
+  /* Aliasok a HTML-beli font-headline-* osztályokhoz (hiányoztak!) */
+  --font-headline-lg: "Bodoni Moda", serif;
+  --font-headline-lg-mobile: "Bodoni Moda", serif;
+  --font-headline-md: "Bodoni Moda", serif;
+  --font-display-lg: "Bodoni Moda", serif;
+  --font-label-sm: "Manrope", sans-serif;
+  --font-body-lg: "Manrope", sans-serif;
+  --font-body-md: "Manrope", sans-serif;
 
-  /* Font sizes */
+  /* ── Font sizes ── */
   --text-display-lg: 64px;
   --text-display-lg--line-height: 1.1;
   --text-display-lg--letter-spacing: -0.02em;
@@ -90,12 +104,14 @@
   --text-label-sm--letter-spacing: 0.1em;
 }
 
-/* Material Symbols */
+/* ── Material Symbols ── */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
 
-/* Egyedi komponens stílusok */
+/* ── Glass cards ── */
+
+/* Világos szekciókhoz (fehér háttér felett) */
 .glass-card {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(20px);
@@ -103,11 +119,19 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Sötét szekciókhoz (sage-dark háttér felett) */
+.dark-glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .organic-shape {
   border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
 }
 
-/* Bubble animáció */
+/* ── Bubble animáció ── */
 .bubble {
   position: fixed;
   border-radius: 50%;
@@ -142,13 +166,11 @@ section, header, footer {
   z-index: 10;
 }
 
-/* ===== NavBar link aláhúzás animáció ===== */
-
+/* ── NavBar link aláhúzás animáció ── */
 .nav-link {
   position: relative;
 }
 
-/* Balról jobbra húzódó aláhúzás hover-re */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -156,7 +178,7 @@ section, header, footer {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #172c21; /* primary szín */
+  background-color: #172c21;
   transition: width 0.3s ease-out;
 }
 
@@ -164,15 +186,12 @@ section, header, footer {
   width: 100%;
 }
 
-/* Aktív link: folyamatos aláhúzás, nincs animáció */
 .nav-link--active::after {
   width: 100%;
   transition: none;
 }
 
-/* ===== About Gut Ildikó ===== */
-
-/* Csak a blob alakját morpholja, NEM mozgatja */
+/* ── About szekció ── */
 .about-blob {
   border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
   animation: aboutBlobMorph 8s ease-in-out infinite;
@@ -186,7 +205,6 @@ section, header, footer {
   100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%; }
 }
 
-/* A wrapper lebeg — koszorú + blob együtt mozog */
 .about-image-float {
   animation: aboutFloatImage 7s ease-in-out infinite;
   will-change: transform;
@@ -197,26 +215,113 @@ section, header, footer {
   50%       { transform: translateY(-12px); }
 }
 
-/* ===== Workflow szekció ===== */
-
+/* ── Services háttér ── */
 .services-bg {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* ===== Reveal on scroll ===== */
+/* ── Reveal on scroll ── */
 .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .reveal-on-scroll.delay-100 { transition-delay: 0.1s; }
 .reveal-on-scroll.delay-200 { transition-delay: 0.2s; }
 
+/* ── Cinematic kártya animáció ── */
+.cinematic-card {
+  position: relative;
+  transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-origin: center center;
+  filter: blur(1px) brightness(0.85);
+  transform: scale(0.9);
+  opacity: 0.75;
+}
+
+.cinematic-card--active {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  z-index: 40;
+  box-shadow: 0 0 60px rgba(180, 204, 188, 0.25);
+  border-color: rgba(247, 224, 183, 0.25);
+}
+
+.cinematic-card--active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(144, 238, 144, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── Scrollbar elrejtés ── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ── Háttér nagy szám (Services szekció) ── */
+.bg-number {
+  font-family: "Bodoni Moda", serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35vw;
+  line-height: 1;
+  color: rgba(247, 224, 183, 0.03);
+  font-weight: 800;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.8s ease;
+  user-select: none;
+}
+
+/* ── Light mote részecskék (Services szekció) ── */
+.light-mote {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(247, 224, 183, 0.95) 0%,
+    rgba(247, 224, 183, 0.35) 50%,
+    transparent 100%
+  );
+  filter: blur(2px);
+  animation: floatMote linear forwards;
+}
+
+@keyframes floatMote {
+  0%   { transform: translateY(0px) translateX(0px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(var(--driftY, -300px)) translateX(var(--driftX, 40px)); opacity: 0; }
+}
+
+/* ── Zen panel animáció ── */
+#zen-panel {
+  transform: translateY(80px) scale(0.96);
+  opacity: 0;
+  filter: blur(6px);
+  transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity, filter;
+}
+
+#zen-panel.visible {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+}

@@ -7,6 +7,8 @@ import WhatIsHeadSpa from "../components/sections/WhatIsHeadSpa.jsx";
 import ServicesSection from "../components/sections/ServicesSection.jsx";
 import ArriveSection from "../components/sections/ArriveSection.jsx";
 import useLenis from "../hooks/useLenis";
+import ServicesSectionNew from "../components/sections/ServicesSectionNew.jsx";
+import HowToArrive from "../components/sections/HowToArrive.jsx";
 
 export default function HomePage() {
   useLenis();
@@ -21,9 +23,9 @@ export default function HomePage() {
   return (
     <main>
       {isMobile ? <ParallaxHeroMobile /> : <ParallaxHeroSection />}
-      <ServicesSection />
+      <ServicesSectionNew />
       <WhatIsHeadSpa />
-      <ArriveSection />
+      <HowToArrive />
       <WorkflowSection />
       <TestimonialSection />
     </main>

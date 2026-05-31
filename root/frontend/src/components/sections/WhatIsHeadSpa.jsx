@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import BgImg from "../../assets/kenyeztetes.png";
+import BgImg from "../../assets/kenyeztetes2.png";
 
 export default function WhatIsHeadSpa() {
     const panelRef = useRef(null);
@@ -23,7 +23,7 @@ export default function WhatIsHeadSpa() {
     }, []);
 
     return (
-        <section className="relative h-[600px] flex items-center overflow-hidden px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+        <section className="relative h-[100vh] flex items-center overflow-hidden px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="absolute inset-0 z-0">
                 <img
                     alt="Head Spa Experience"
