@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="hu">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Szolgáltatásaink | Gut Ildi Rituals</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#fbf9f4",
+                        "on-tertiary-fixed-variant": "#3b4b39",
+                        "on-secondary-container": "#736242",
+                        "inverse-surface": "#30312e",
+                        "inverse-primary": "#b4ccbc",
+                        "secondary": "#6d5c3c",
+                        "surface-variant": "#e4e2dd",
+                        "on-primary-fixed-variant": "#364b3f",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#324231",
+                        "outline": "#737873",
+                        "on-tertiary-container": "#9cae98",
+                        "surface-container-low": "#f5f3ee",
+                        "surface-dim": "#dbdad5",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1b1c19",
+                        "on-surface-variant": "#424844",
+                        "secondary-fixed-dim": "#dac49d",
+                        "primary-fixed-dim": "#b4ccbc",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#f7e0b7",
+                        "surface-container-high": "#eae8e3",
+                        "outline-variant": "#c2c8c2",
+                        "tertiary-fixed": "#d5e8cf",
+                        "primary-fixed": "#d0e8d7",
+                        "on-background": "#1b1c19",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fbf9f4",
+                        "on-secondary-fixed": "#251a02",
+                        "primary": "#172c21",
+                        "on-tertiary-fixed": "#101f10",
+                        "on-primary-fixed": "#0b1f15",
+                        "surface-container": "#f0eee9",
+                        "surface-tint": "#4d6356",
+                        "surface-container-highest": "#e4e2dd",
+                        "on-primary-container": "#96ae9e",
+                        "error": "#ba1a1a",
+                        "primary-container": "#2d4236",
+                        "secondary-container": "#f7e0b7",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary-fixed-variant": "#544527",
+                        "tertiary-fixed-dim": "#b9ccb4",
+                        "background": "#fbf9f4",
+                        "tertiary": "#1d2c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "container-max": "1200px",
+                        "margin-desktop": "80px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Bodoni Moda"],
+                        "label-sm": ["Manrope"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "body-lg": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "300" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            background: rgba(251, 249, 244, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(109, 92, 60, 0.1);
+        }
+
+        .parallax-item {
+            will-change: transform;
+            pointer-events: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            filter: blur(8px);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0) translateX(0);
+        }
+
+        .slide-right {
+            transform: translateX(50px);
+        }
+
+        .slide-left {
+            transform: translateX(-50px);
+        }
+
+        .slide-up {
+            transform: translateY(50px);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(45,66,54,0.08)]">
+        <div class="flex justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md tracking-widest text-primary dark:text-primary-fixed">Gut Ildi
+            </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="font-label-sm text-label-sm text-on-surface/70 dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-500"
+                    href="#">The Ritual</a>
+                <a class="font-label-sm text-label-sm text-secondary dark:text-secondary-fixed-dim border-b border-secondary/30 pb-1"
+                    href="#">Treatments</a>
+                <a class="font-label-sm text-label-sm text-on-surface/70 dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-500"
+                    href="#">Scent Library</a>
+                <a class="font-label-sm text-label-sm text-on-surface/70 dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-500"
+                    href="#">Sanctuary</a>
+                <a class="font-label-sm text-label-sm text-on-surface/70 dark:text-on-primary-fixed-variant hover:text-secondary transition-colors duration-500"
+                    href="#">Journal</a>
+            </div>
+            <button
+                class="px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-primary-container transition-all">Book
+                Ritual</button>
+        </div>
+    </nav>
+    <!-- Parallax Watermarks -->
+    <div class="fixed inset-0 z-0 opacity-[0.03] pointer-events-none select-none">
+
+    </div>
+    <!-- Hero Section -->
+    <header class="relative h-[819px] flex items-center justify-center overflow-hidden pt-20">
+
+        <!-- Videó háttér -->
+        <div class="absolute inset-0 z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover scale-105">
+                <source src="kling_20260602_VIDEO_Image1_mad_183_0.mp4" type="video/mp4">
+            </video>
+
+            <!-- Halványítás -->
+            <div class="absolute inset-0 bg-black/30"></div>
+
+            <!-- Opcionális blur -->
+            <div class="absolute inset-0 backdrop-blur-[1px]"></div>
+        </div>
+
+        <!-- Tartalom -->
+        <div class="relative z-10 text-center px-margin-mobile">
+            <h1 class="font-display-lg text-display-lg text-surface mb-4 tracking-tighter">
+                Szolgáltatásaink
+            </h1>
+            <p class="font-body-lg text-body-lg text-surface/90 max-w-2xl mx-auto italic">
+                Egy utazás a csend birodalmába, ahol a test és a lélek újra egymásra talál.
+            </p>
+        </div>
+
+    </header>
+    <main class="relative z-10 space-y-40 py-40 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <!-- Service 1: Fejmasszázs -->
+        <section class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+            <div class="w-full md:w-3/5 reveal slide-up">
+                <div class="glass-card p-12 rounded-3xl shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute -top-10 -left-10 w-32 h-32 bg-secondary/5 rounded-full blur-3xl group-hover:bg-secondary/10 transition-all duration-700">
+                    </div>
+
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+                        RELAX 30' - Fejbőr frissítő Hajrituálé
+                    </h2>
+
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Egy rövid, mégis hatékony feltöltő kezelés azok számára, akik szeretnének egy kis
+                        kikapcsolódást és frissességet adni hajuknak és fejbőrüknek a rohanó hétköznapokban.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span>30 perc + hajformázás</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span>14 900 Ft</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-primary mb-4">
+                        A kezelés tartalma:
+                    </h3>
+
+                    <ul class="space-y-3 text-on-surface-variant mb-8">
+                        <li>✓ Mikrokamerás fejbőr diagnosztika</li>
+                        <li>✓ Fejbőrradír (ha szükséges)</li>
+                        <li>✓ Kényeztető hajmosás</li>
+                        <li>✓ Relaxáló fejbőrmasszázs</li>
+                        <li>✓ Hajformázás ionizáló hajszárítóval</li>
+                    </ul>
+
+                    <div class="p-4 bg-secondary/5 rounded-2xl">
+                        <p class="text-on-surface-variant italic leading-relaxed">
+                            A kezelés egy egész testet átmasszírozó relaxágyon történik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-2/5 reveal slide-right h-[500px]">
+                <img alt="Head Massage" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
+                    data-alt="Close-up shot of a professional therapist's hands performing a gentle head massage in a dimly lit, luxury spa setting. The person receiving the massage has a look of pure serenity. Warm champagne lighting highlights the water droplets and the soft texture of organic cotton towels, conveying a premium Zen aesthetic."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDktX27uYjtpNjm1TFfgDjyx1vgNS5ITRS3I1rLzpRFRa6hkxxhip5u7KXV-TQTfv18vBLrodWXxvHcDZLmQ0wwS4ljqbQgAgaxHTNGBS7a80uco_hnEwwyG3RlFBJTaULbXw6e2GWX-j-u7VrOH8fZW5sLT-R9LbrfyTTl6VMxJM1c1oYs7mScGVdoEIXXcGiMw5gkc0ot0E_DJCh9fEZLWPlNrGv_Ge-VPTaiZuA1zFjyxhyxf__zWppvKZgvSAdkOfwL2f9f8iE" />
+            </div>
+        </section>
+        <!-- Service 2: Aromaterápia -->
+        <section class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-24">
+            <div class="flex-1 reveal slide-up">
+                <div class="glass-card p-12 rounded-3xl shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-700">
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+                        Oil Control Scalp - Zsírosodás elleni rituálé
+                    </h2>
+
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        A fejbőr egyensúlyának helyreállítása. Frissítő, tisztító és faggyúszabályzó kezelés,
+                        amely segít normalizálni a túlzott faggyútermelést, tisztítja a fejbőrt és hosszan tartó
+                        friss érzetet biztosít.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span>60 perc + hajformázás</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span>24 900 Ft</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-primary mb-4">
+                        A kezelés tartalma:
+                    </h3>
+
+                    <ul class="space-y-3 text-on-surface-variant mb-8">
+                        <li>✓ Mikrokamerás fejbőrdiagnosztika</li>
+                        <li>✓ Arc-, nyak- és dekoltázsmasszázs + fátyolmaszk</li>
+                        <li>✓ Zsírosodás elleni tisztító agyag</li>
+                        <li>✓ Mélytisztító haj- és fejbőrmasszázs</li>
+                        <li>✓ Faggyúszabályzó fejbőrmasszázs</li>
+                        <li>✓ Hajformázás ionizáló hajszárítóval</li>
+                    </ul>
+
+                    <div class="p-4 bg-primary/5 rounded-2xl">
+                        <p class="text-on-surface-variant italic leading-relaxed">
+                            A kezelés egy egész testet átmasszírozó relaxágyon történik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 reveal slide-left h-[500px]">
+                <img alt="Aromatherapy" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
+                    data-alt="Artistic composition of essential oil bottles, dried botanical elements like eucalyptus and yuzu slices, arranged on a minimalist stone tray. Soft morning light filters through a shoji screen, creating delicate shadows. The scene is clean, organic, and ultra-premium, emphasizing botanical elegance and Zen minimalism."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvoGet4oK5n6k-pHZXj-cUAvKp8QoTrBm5qyB4xZEmC7K5Z2bR43u7jJwK-qP3nyzK38SySNh8YpVflqxa_5FjrkHwo4Xka3WhGIZdX3Cxf4SjN5Aglvp2oolBLYUv8Juw2yqhr3eHIfOxlvxfkFwcQj_N0O4MEaK0WnkM-jvcsO2M1m3h8E9gooSqMseludsJDEIbLedgpvl0G22JQgkKp5Lusg5nQzdrgFS7boID56O8oYr0VnEaA3gWjmHDsD76JD6BcVAO-w8" />
+            </div>
+        </section>
+        <!-- Service 3: Fejbőr kezelés -->
+        <section class="text-center space-y-16">
+            <div class="max-w-3xl mx-auto reveal slide-up">
+                <span class="font-label-sm text-label-sm text-secondary mb-6 block uppercase tracking-widest">Rituálé
+                    III.</span>
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Holisztikus Fejbőr Detox</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-12 italic">
+                    "A haj szépsége a gyökereknél kezdődik." - Speciális kezelésünk mélyen tisztítja a pórusokat és
+                    helyreállítja a fejbőr természetes egyensúlyát.
+                </p>
+            </div>
+            <div class="reveal slide-up delay-200">
+                <div class="relative group rounded-[60px] overflow-hidden aspect-video max-w-5xl mx-auto">
+                    <img alt="Scalp Treatment"
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
+                        data-alt="A macro shot of clear, sparkling water being gently poured over a person's scalp amidst lush green leaves. The water creates soft bubbles and ripples, reflecting the sage green environment. The image feels deeply refreshing and immersive, capturing the essence of a 'Water Ritual' in a high-end spa context."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhLnaREwgJ8CisAWJHQHQBLIXZF8HInhBnG3WDLNHIZa82O4JhiLswCrV350trmcXtfUNUU37uO1TAfM3ZVCVbt7X2x8mqZfPj42QYJORtt_bICKXlc1mYwu4idwa2POYEI4i_Prlersim905xp9D1TU2iAyzoOE-83lguH5Xc88huuJY8_7i_i-WMvkVfQa0jHLaIRIgVXqM1tzRcy9ME03ZsYZODIQKf_ZkrwDu630gV4DCNkUIvwg-7t2KzluCQ9Of7lC-PC4s" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end justify-center p-12">
+                        <p
+                            class="text-surface font-body-lg italic opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            A víz tisztító ereje minden cseppben.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service 4: Relax csomag -->
+        <section class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+            <div class="flex-1 reveal slide-up">
+                <div class="glass-card p-12 rounded-3xl shadow-xl border-secondary/20">
+                    <span class="font-label-sm text-label-sm text-secondary mb-6 block uppercase tracking-widest">A
+                        Legteljesebb Élmény</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Gut Ildi Signature Csomag</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        A teljes elvonulás. 120 perces rituálénk során a fejmasszázst, a gőzfürdős fejbőrkezelést és a
+                        meditatív hangtálas relaxációt ötvözzük, hogy Ön újjászületve térjen vissza a mindennapokba.
+                    </p>
+                    <button
+                        class="w-full py-4 border border-secondary text-secondary rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary hover:text-surface transition-all duration-500 group overflow-hidden relative">
+                        <span class="relative z-10">Időpontfoglalás</span>
+                        <div
+                            class="absolute inset-0 bg-secondary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500">
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 reveal slide-right h-[500px]">
+                <img alt="Signature Experience" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
+                    data-alt="A premium wellness kit featuring a wooden bowl with water, floating white lotus flowers, and smooth river stones. Beside it, a set of hand-poured candles in sage green ceramic jars emit a soft glow. The background is a minimalist, ivory-colored Zen garden. The scene is shot with a shallow depth of field, emphasizing luxury and tranquility."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5W7cxwCcPXlmJcDm4hRazKY5UvlFwyw81f3VaoOC4KfDEVn7pEctqqP80fbm9ymN8Y1Nq0Rnm_O1Q-Qk459w6eXs8sS4FWLi9oe74R-FCHdzgdCMfArrwfVT_WovciIDKa_mXNa4NI7bqPyTjV3dfRVXXvDFXyEBMHtCjpYzjPz5VsB54Ecpl1IQrKBq5k_zRvbmcW2JZL-2wNbDwRDasGNIBY_c3WJTNdYUE-xAEIBUzMvERAFpvYjEYl5qFsQqj-HJ1oow6llE" />
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-surface dark:bg-primary border-t border-outline-variant/30 w-full pt-20 pb-10">
+        <div class="max-w-container-max mx-auto px-margin-desktop flex flex-col items-center text-center">
+            <div class="font-headline-lg text-headline-lg text-primary dark:text-primary-fixed mb-8">Gut Ildi Rituals
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 mb-12">
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300"
+                    href="#">Privacy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300"
+                    href="#">Terms</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300"
+                    href="#">Membership</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300"
+                    href="#">Accessibility</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300"
+                    href="#">Contact</a>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant/60">© 2024 Gut Ildi Rituals. Crafted for the
+                Soul.</p>
+        </div>
+    </footer>
+    <script>
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.parallax-item').forEach(item => {
+                const speed = parseFloat(item.getAttribute('data-value'));
+                item.style.transform = `translateY(${scrolled * speed * 0.05}px)`;
+            });
+        });
+
+        // Micro-interactions for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('opacity-80'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('opacity-80'));
+        });
+    </script>
+</body>
+
+</html>
