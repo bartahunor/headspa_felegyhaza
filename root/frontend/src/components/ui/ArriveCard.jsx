@@ -3,7 +3,7 @@
 
 export default function ArriveCard({ icon, title, description }) {
   return (
-    <div className="floating-ritual-card p-10 bg-background/30 rounded-[40px] border border-outline-variant/10 text-center flex flex-col items-center max-w-[400px]">
+    <div className="floating-ritual-card p-6 md:p-10 bg-background/30 rounded-[40px] border border-outline-variant/10 text-center flex flex-col items-center w-full md:max-w-[400px]">
       <div className="mb-6">
         <span className="material-symbols-outlined text-on-tertiary-container text-5xl">
           {icon}

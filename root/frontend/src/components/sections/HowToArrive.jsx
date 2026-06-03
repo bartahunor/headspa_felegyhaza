@@ -29,13 +29,13 @@ const INFO_CARDS = [
 ];
 
 // A 3 megálló a path hosszának hány %-ánál van (0–1)
-const STOP_FRACTIONS = [0.32, 0.60, 0.53];
+const STOP_FRACTIONS = [0.392, 0.60, 0.565];
 
 // Elágazó vonal hossza (SVG koordinátában)
 const BRANCH_LEN = 90;
 
 const RIBBON_PATH =
-  "M 0 900 C 80 820, 60 680, 200 620 S 420 540, 380 400 S 260 220, 440 160 S 620 80, 700 0";
+  "M 0 900 C 80 820, 60 680, 200 620 S 400 540, 380 400 S 260 220, 440 160 S 620 80, 700 0";
 
 // ─── Elágazási pont kiszámítása a path mentén ─────────────────────────────
 // tangent alapján merőleges irányt számolunk, majd a side alapján irányt választunk
@@ -123,12 +123,12 @@ export default function HowToArrive() {
       className="relative overflow-hidden py-40 px-[20px] md:px-[80px]"
       style={{ background: "#172c21", minHeight: "110vh" }}
     >
-      {/* ── Animált szalag + elágazások ── */}
+      {/* ── Animált szalag + elágazások — csak desktopOn ── */}
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
         preserveAspectRatio="none"
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
         style={{ zIndex: 0 }}
       >
         {/* Szalag árnyék */}
@@ -221,7 +221,7 @@ export default function HowToArrive() {
         ))}
       </svg>
 
-      {/* ── Kártyák — az elágazás végpontjához igazítva ── */}
+      {/* ── Lebegő kártyák — csak desktopOn ── */}
       {branches.map((b, i) => {
         const card = INFO_CARDS[i];
         // SVG viewBox koordinátát % pozícióvá alakítjuk
@@ -232,7 +232,7 @@ export default function HowToArrive() {
         return (
           <div
             key={card.id}
-            className="absolute z-10"
+            className="absolute z-10 hidden md:block"
             style={{
               left: `${xPct}%`,
               top: `${yPct}%`,
@@ -259,7 +259,40 @@ export default function HowToArrive() {
         );
       })}
 
-      
+      {/* ── Mobil lista — csak mobilon látszik ── */}
+      <div className="md:hidden flex flex-col gap-4 relative z-10">
+        {/* Dekoratív függőleges vonal bal oldalon */}
+        <div
+          className="absolute left-[18px] top-0 bottom-0 w-[2px] rounded-full"
+          style={{ background: "rgba(74, 222, 128, 0.2)" }}
+        />
+
+        {INFO_CARDS.map((card, i) => (
+          <div
+            key={card.id}
+            className="flex items-start gap-4 pl-1"
+            style={{
+              opacity: cardsVisible ? 1 : 0,
+              transform: cardsVisible ? "translateX(0)" : "translateX(16px)",
+              transition: cardsVisible
+                ? `opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${0.2 + i * 0.15}s,
+                   transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${0.2 + i * 0.15}s`
+                : "none",
+            }}
+          >
+            {/* Dot a vonalra */}
+            <div
+              className="relative z-10 mt-[22px] w-[10px] h-[10px] rounded-full flex-shrink-0"
+              style={{ background: "#4ade80" }}
+            />
+            <ArriveCard
+              icon={card.icon}
+              title={card.title}
+              description={card.description}
+            />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
