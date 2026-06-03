@@ -180,10 +180,9 @@
 
         <!-- Videó háttér -->
         <div class="absolute inset-0 z-0">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover scale-105">
-                <source src="kling_20260602_VIDEO_Image1_mad_183_0.mp4" type="video/mp4">
+            <video id="bgVideo" autoplay muted playsinline class="w-full h-full object-cover scale-105">
+                <source src="Video Project 9.mp4" type="video/mp4">
             </video>
-
             <!-- Halványítás -->
             <div class="absolute inset-0 bg-black/30"></div>
 
@@ -313,55 +312,235 @@
             </div>
         </section>
         <!-- Service 3: Fejbőr kezelés -->
-        <section class="text-center space-y-16">
-            <div class="max-w-3xl mx-auto reveal slide-up">
-                <span class="font-label-sm text-label-sm text-secondary mb-6 block uppercase tracking-widest">Rituálé
-                    III.</span>
-                <h2 class="font-headline-lg text-headline-lg text-primary mb-8">Holisztikus Fejbőr Detox</h2>
-                <p class="font-body-md text-body-md text-on-surface-variant mb-12 italic">
-                    "A haj szépsége a gyökereknél kezdődik." - Speciális kezelésünk mélyen tisztítja a pórusokat és
-                    helyreállítja a fejbőr természetes egyensúlyát.
-                </p>
-            </div>
-            <div class="reveal slide-up delay-200">
-                <div class="relative group rounded-[60px] overflow-hidden aspect-video max-w-5xl mx-auto">
-                    <img alt="Scalp Treatment"
-                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
-                        data-alt="A macro shot of clear, sparkling water being gently poured over a person's scalp amidst lush green leaves. The water creates soft bubbles and ripples, reflecting the sage green environment. The image feels deeply refreshing and immersive, capturing the essence of a 'Water Ritual' in a high-end spa context."
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhLnaREwgJ8CisAWJHQHQBLIXZF8HInhBnG3WDLNHIZa82O4JhiLswCrV350trmcXtfUNUU37uO1TAfM3ZVCVbt7X2x8mqZfPj42QYJORtt_bICKXlc1mYwu4idwa2POYEI4i_Prlersim905xp9D1TU2iAyzoOE-83lguH5Xc88huuJY8_7i_i-WMvkVfQa0jHLaIRIgVXqM1tzRcy9ME03ZsYZODIQKf_ZkrwDu630gV4DCNkUIvwg-7t2KzluCQ9Of7lC-PC4s" />
+        <section class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+            <div class="w-full md:w-3/5 reveal slide-up">
+                <div class="glass-card p-12 rounded-3xl shadow-xl relative overflow-hidden group">
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end justify-center p-12">
-                        <p
-                            class="text-surface font-body-lg italic opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            A víz tisztító ereje minden cseppben.</p>
+                        class="absolute -top-10 -left-10 w-32 h-32 bg-secondary/5 rounded-full blur-3xl group-hover:bg-secondary/10 transition-all duration-700">
+                    </div>
+
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+                        Healthy Scalp - Korpásodás elleni rituálé
+                    </h2>
+
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Gyengéd, mégis hatékony tisztító és nyugtató kezelés, amely segít csökkenteni a
+                        korpásodást és támogatja a fejbőr természetes mikrobiomját.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span>60 perc + hajformázás</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span>24 900 Ft</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-primary mb-4">
+                        A kezelés tartalma:
+                    </h3>
+
+                    <ul class="space-y-3 text-on-surface-variant mb-8">
+                        <li>✓ Mikrokamerás fejbőrdiagnosztika</li>
+                        <li>✓ Arc-, nyak- és dekoltázsmasszázs + fátyolmaszk</li>
+                        <li>✓ Zsírosodás elleni tisztító agyag</li>
+                        <li>✓ Mélytisztító haj- és fejbőrmasszázs</li>
+                        <li>✓ Faggyúszabályzó fejbőrmasszázs</li>
+                        <li>✓ Hajformázás (ionizáló hajszárítóval történik, a haj minőségének megőrzéséért)</li>
+                    </ul>
+
+                    <div class="p-4 bg-secondary/5 rounded-2xl">
+                        <p class="text-on-surface-variant italic leading-relaxed">
+                            A kezelés egy egész testet átmasszírozó relaxágyon történik.
+                        </p>
                     </div>
                 </div>
             </div>
+            <div class="w-full md:w-2/5 reveal slide-right h-[500px]">
+                <img alt="Head Massage" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
+                    data-alt="Close-up shot of a professional therapist's hands performing a gentle head massage in a dimly lit, luxury spa setting. The person receiving the massage has a look of pure serenity. Warm champagne lighting highlights the water droplets and the soft texture of organic cotton towels, conveying a premium Zen aesthetic."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDktX27uYjtpNjm1TFfgDjyx1vgNS5ITRS3I1rLzpRFRa6hkxxhip5u7KXV-TQTfv18vBLrodWXxvHcDZLmQ0wwS4ljqbQgAgaxHTNGBS7a80uco_hnEwwyG3RlFBJTaULbXw6e2GWX-j-u7VrOH8fZW5sLT-R9LbrfyTTl6VMxJM1c1oYs7mScGVdoEIXXcGiMw5gkc0ot0E_DJCh9fEZLWPlNrGv_Ge-VPTaiZuA1zFjyxhyxf__zWppvKZgvSAdkOfwL2f9f8iE" />
+            </div>
         </section>
         <!-- Service 4: Relax csomag -->
-        <section class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+        <section class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-24">
             <div class="flex-1 reveal slide-up">
-                <div class="glass-card p-12 rounded-3xl shadow-xl border-secondary/20">
-                    <span class="font-label-sm text-label-sm text-secondary mb-6 block uppercase tracking-widest">A
-                        Legteljesebb Élmény</span>
-                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">Gut Ildi Signature Csomag</h2>
+                <div class="glass-card p-12 rounded-3xl shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-700">
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+                        Prémium Head Spa Rituálé
+                    </h2>
+
                     <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
-                        A teljes elvonulás. 120 perces rituálénk során a fejmasszázst, a gőzfürdős fejbőrkezelést és a
-                        meditatív hangtálas relaxációt ötvözzük, hogy Ön újjászületve térjen vissza a mindennapokba.
+                        Egy igazán luxus élmény, ahol a teljes kikapcsolódás és feltöltődés a főszerep.
+                        A kezelés során nemcsak a haj és a fejbőr kap kiemelt figyelmet,
+                        hanem az arc és a lélek is megpihenhet.
                     </p>
-                    <button
-                        class="w-full py-4 border border-secondary text-secondary rounded-full font-label-sm text-label-sm uppercase tracking-widest hover:bg-secondary hover:text-surface transition-all duration-500 group overflow-hidden relative">
-                        <span class="relative z-10">Időpontfoglalás</span>
-                        <div
-                            class="absolute inset-0 bg-secondary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500">
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span>90 perc + hajformázás</span>
                         </div>
-                    </button>
+
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span>32 900 Ft</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-primary mb-4">
+                        A rituálé tartalma:
+                    </h3>
+
+                    <ul class="space-y-3 text-on-surface-variant mb-8">
+                        <li>✓ Mikrokamerás fejbőrdiagnosztika</li>
+                        <li>✓ Arc-, nyak- és dekoltázsmasszázs</li>
+                        <li>✓ Fejbőrradír</li>
+                        <li>✓ Mélytisztító haj- és fejbőrkezelés</li>
+                        <li>✓ Tápláló hajpakolás</li>
+                        <li>✓ Gőzterápia</li>
+                        <li>✓ Hosszabb, relaxáló arcmasszázs</li>
+                        <li>✓ Arc köpölyözés</li>
+                        <li>✓ Hosszabb fejmasszázs különböző masszírozó eszközökkel</li>
+                        <li>✓ VIO kezelés</li>
+                        <li>✓ Ionizáló hajszárítással történő hajszárítás</li>
+                    </ul>
+
+                    <div class="p-4 bg-primary/5 rounded-2xl">
+                        <p class="text-on-surface-variant italic leading-relaxed">
+                            A kezelés egy egész testet átmasszírozó relaxágyon történik.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="flex-1 reveal slide-right h-[500px]">
-                <img alt="Signature Experience" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
-                    data-alt="A premium wellness kit featuring a wooden bowl with water, floating white lotus flowers, and smooth river stones. Beside it, a set of hand-poured candles in sage green ceramic jars emit a soft glow. The background is a minimalist, ivory-colored Zen garden. The scene is shot with a shallow depth of field, emphasizing luxury and tranquility."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5W7cxwCcPXlmJcDm4hRazKY5UvlFwyw81f3VaoOC4KfDEVn7pEctqqP80fbm9ymN8Y1Nq0Rnm_O1Q-Qk459w6eXs8sS4FWLi9oe74R-FCHdzgdCMfArrwfVT_WovciIDKa_mXNa4NI7bqPyTjV3dfRVXXvDFXyEBMHtCjpYzjPz5VsB54Ecpl1IQrKBq5k_zRvbmcW2JZL-2wNbDwRDasGNIBY_c3WJTNdYUE-xAEIBUzMvERAFpvYjEYl5qFsQqj-HJ1oow6llE" />
+            <div class="flex-1 reveal slide-left h-[500px]">
+                <img alt="Aromatherapy" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
+                    data-alt="Artistic composition of essential oil bottles, dried botanical elements like eucalyptus and yuzu slices, arranged on a minimalist stone tray. Soft morning light filters through a shoji screen, creating delicate shadows. The scene is clean, organic, and ultra-premium, emphasizing botanical elegance and Zen minimalism."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvoGet4oK5n6k-pHZXj-cUAvKp8QoTrBm5qyB4xZEmC7K5Z2bR43u7jJwK-qP3nyzK38SySNh8YpVflqxa_5FjrkHwo4Xka3WhGIZdX3Cxf4SjN5Aglvp2oolBLYUv8Juw2yqhr3eHIfOxlvxfkFwcQj_N0O4MEaK0WnkM-jvcsO2M1m3h8E9gooSqMseludsJDEIbLedgpvl0G22JQgkKp5Lusg5nQzdrgFS7boID56O8oYr0VnEaA3gWjmHDsD76JD6BcVAO-w8" />
+            </div>
+        </section>
+
+        <section class="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+            <div class="w-full md:w-3/5 reveal slide-up">
+                <div class="glass-card p-12 rounded-3xl shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute -top-10 -left-10 w-32 h-32 bg-secondary/5 rounded-full blur-3xl group-hover:bg-secondary/10 transition-all duration-700">
+                    </div>
+
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+                        NOURISH – KERATÉ VAJAS Rituálé
+                    </h2>
+
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Gazdagon tápláló, hidratáló és lágyító kezelés, amely a keraté vaj jótékony
+                        hatásainak köszönhetően igazi megújulást nyújt a száraz, töredezett és sérült haj számára.
+                        Védő filmet képez a hajszálakon, így segít megóvni a hajat a külső légköri hatásoktól.
+                    </p>
+
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span>60 perc + hajformázás</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span>24 900 Ft</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-primary mb-4">
+                        A kezelés tartalma:
+                    </h3>
+
+                    <ul class="space-y-3 text-on-surface-variant mb-8">
+                        <li>✓ Mikrokamerás fejbőrdiagnosztika</li>
+                        <li>✓ Arc-, nyak- és dekoltázsmasszázs + fátyolmaszk</li>
+                        <li>✓ Fejbőrradír</li>
+                        <li>✓ Hidratáló haj- és fejbőrmosás</li>
+                        <li>✓ Tápláló keraté vajas fejbőrmasszázs</li>
+                        <li>✓ Intenzív tápláló pakolás (szérum)</li>
+                        <li>✓ Gőzterápia</li>
+                        <li>✓ Hajformázás (ionizáló hajszárítóval történik, a haj minőségének megőrzéséért)</li>
+                    </ul>
+
+                    <div class="p-4 bg-secondary/5 rounded-2xl">
+                        <p class="text-on-surface-variant italic leading-relaxed">
+                            A kezelés egy egész testet átmasszírozó relaxágyon történik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-2/5 reveal slide-right h-[500px]">
+                <img alt="Head Massage" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
+                    data-alt="Close-up shot of a professional therapist's hands performing a gentle head massage in a dimly lit, luxury spa setting. The person receiving the massage has a look of pure serenity. Warm champagne lighting highlights the water droplets and the soft texture of organic cotton towels, conveying a premium Zen aesthetic."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDktX27uYjtpNjm1TFfgDjyx1vgNS5ITRS3I1rLzpRFRa6hkxxhip5u7KXV-TQTfv18vBLrodWXxvHcDZLmQ0wwS4ljqbQgAgaxHTNGBS7a80uco_hnEwwyG3RlFBJTaULbXw6e2GWX-j-u7VrOH8fZW5sLT-R9LbrfyTTl6VMxJM1c1oYs7mScGVdoEIXXcGiMw5gkc0ot0E_DJCh9fEZLWPlNrGv_Ge-VPTaiZuA1zFjyxhyxf__zWppvKZgvSAdkOfwL2f9f8iE" />
+            </div>
+        </section>
+
+        <section class="flex flex-col md:flex-row-reverse items-center gap-16 md:gap-24">
+            <div class="flex-1 reveal slide-up">
+                <div class="glass-card p-12 rounded-3xl shadow-xl relative overflow-hidden group">
+                    <div
+                        class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-700">
+                    </div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-6">
+                        ENERGY – Hajhullás elleni rituálé
+                    </h2>
+
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                        Élénkítő, serkentő és tonizáló kezelés, amely a ginzeng kivonat és a koffein
+                        hatóerejével támogatja a fejbőr mikrokeringését, erősíti a hajhagymákat,
+                        és elősegíti az egészséges, erősebb haj növekedését.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span>60 perc + hajformázás</span>
+                        </div>
+
+                        <div class="flex items-center gap-3 text-secondary">
+                            <span class="material-symbols-outlined">payments</span>
+                            <span>24 900 Ft</span>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-primary mb-4">
+                        A kezelés tartalma:
+                    </h3>
+
+                    <ul class="space-y-3 text-on-surface-variant mb-8">
+                        <li>✓ Mikrokamerás fejbőrdiagnosztika</li>
+                        <li>✓ Arc-, nyak- és dekoltázsmasszázs + fátyolmaszk</li>
+                        <li>✓ Fejbőrradír</li>
+                        <li>✓ Serkentő haj- és fejbőrmasszázs</li>
+                        <li>✓ Élénkítő fejbőrmasszázs</li>
+                        <li>✓ Energizáló hatóanyagok bevitele</li>
+                        <li>✓ Gőzterápia</li>
+                        <li>✓ Stimuláló szérum bemasszírozása</li>
+                        <li>✓ Hajformázás (ionizáló hajszárítóval történik, a haj minőségének megőrzéséért)</li>
+                    </ul>
+
+                    <div class="p-4 bg-primary/5 rounded-2xl">
+                        <p class="text-on-surface-variant italic leading-relaxed">
+                            A kezelés egy egész testet átmasszírozó relaxágyon történik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 reveal slide-left h-[500px]">
+                <img alt="Aromatherapy" class="w-full h-full object-cover rounded-[40px] shadow-2xl"
+                    data-alt="Artistic composition of essential oil bottles, dried botanical elements like eucalyptus and yuzu slices, arranged on a minimalist stone tray. Soft morning light filters through a shoji screen, creating delicate shadows. The scene is clean, organic, and ultra-premium, emphasizing botanical elegance and Zen minimalism."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvoGet4oK5n6k-pHZXj-cUAvKp8QoTrBm5qyB4xZEmC7K5Z2bR43u7jJwK-qP3nyzK38SySNh8YpVflqxa_5FjrkHwo4Xka3WhGIZdX3Cxf4SjN5Aglvp2oolBLYUv8Juw2yqhr3eHIfOxlvxfkFwcQj_N0O4MEaK0WnkM-jvcsO2M1m3h8E9gooSqMseludsJDEIbLedgpvl0G22JQgkKp5Lusg5nQzdrgFS7boID56O8oYr0VnEaA3gWjmHDsD76JD6BcVAO-w8" />
             </div>
         </section>
     </main>
@@ -389,17 +568,22 @@
     <script>
         // Scroll Animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.1
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
                 }
             });
         }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
@@ -417,6 +601,10 @@
             btn.addEventListener('mousedown', () => btn.classList.add('opacity-80'));
             btn.addEventListener('mouseup', () => btn.classList.remove('opacity-80'));
         });
+
+        const video = document.getElementById("bgVideo");
+        video.currentTime = 0;
+        video.play();
     </script>
 </body>
 
