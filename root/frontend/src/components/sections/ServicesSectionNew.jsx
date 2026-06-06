@@ -170,7 +170,7 @@ export default function ServicesSection() {
           transition: "opacity 0.7s ease, transform 0.7s ease",
         }}
       >
-        <h2 className="font-headline-lg text-[64px] text-white leading-none mb-5 italic">
+        <h2 className="font-headline-lg text-[36px] md:text-[64px] text-white leading-none mb-5 italic">
           Szolgáltatásaink
         </h2>
       </div>

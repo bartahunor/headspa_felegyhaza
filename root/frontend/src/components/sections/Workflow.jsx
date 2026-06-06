@@ -1,4 +1,5 @@
 import ServicesBgImg from "../../assets/Gemini_Generated_Image_w4oaxjw4oaxjw4oa.png";
+import ServicesBgImgMobile from "../../assets/workflow_mobil.png";
 
 const steps = [
   {
@@ -22,7 +23,11 @@ export default function WorkflowSection() {
   return (
     <section
       className="py-40 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] services-bg"
-      style={{ backgroundImage: `url(${ServicesBgImg})` }}
+      style={{
+        backgroundImage: `url(${
+          window.innerWidth < 768 ? ServicesBgImgMobile : ServicesBgImg
+        })`,
+      }}
     >
       <div className="max-w-[var(--spacing-container-max)] mx-auto space-y-16">
 

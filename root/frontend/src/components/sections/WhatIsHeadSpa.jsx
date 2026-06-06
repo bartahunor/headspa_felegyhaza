@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import BgImg from "../../assets/kenyeztetes2.png";
+import MobileBgImg from "../../assets/kenyeztetes_mobil.png";
 
 export default function WhatIsHeadSpa() {
     const panelRef = useRef(null);
@@ -28,7 +29,7 @@ export default function WhatIsHeadSpa() {
                 <img
                     alt="Head Spa Experience"
                     className="w-full h-full object-cover object-center"
-                    src={BgImg}
+                    src={window.innerWidth < 768 ? MobileBgImg : BgImg}
                 />
                 <div className="absolute inset-0 bg-black/10"></div>
             </div>
