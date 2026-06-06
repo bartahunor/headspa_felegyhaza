@@ -107,9 +107,19 @@ export default function ServicesSection() {
     [scrollToCard]
   );
 
+  const titleRef = useRef(null);
+  const [titleVisible, setTitleVisible] = useState(false);
+
   useEffect(() => {
-    scrollToCard(0);
-  }, [scrollToCard]);
+    const el = titleRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setTitleVisible(true); },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const progressPct = ((activeIndex + 1) / SERVICES.length) * 100;
 
@@ -151,7 +161,15 @@ export default function ServicesSection() {
       </div>
 
       {/* ── Cím ── */}
-      <div className="relative z-300 flex flex-col items-center text-center mb-6 reveal-on-scroll">
+      <div
+        ref={titleRef}
+        className="relative z-300 flex flex-col items-center text-center mb-6 reveal-on-scroll"
+        style={{
+          opacity: titleVisible ? 1 : 0,
+          transform: titleVisible ? "translateY(0)" : "translateY(32px)",
+          transition: "opacity 0.7s ease, transform 0.7s ease",
+        }}
+      >
         <h2 className="font-headline-lg text-[64px] text-white leading-none mb-5 italic">
           Szolgáltatásaink
         </h2>

@@ -12,30 +12,30 @@ const INFO_CARDS = [
   },
   {
     id: 2,
-    icon: "door_front",
-    title: "Várakozás",
-    description: "Korábbi érkezés esetén kérjük, várj az üzlet előtt, amíg érted megyünk.",
+    icon: "schedule",
+    title: "Pontosan érkezz",
+    description: "Kérjük, érkezz pontosan a foglalt időpontodra.",
     // jobb oldal
     side: "right",
   },
   {
     id: 3,
-    icon: "schedule",
-    title: "Pontosan érkezz",
-    description: "Kérjük, érkezz pontosan a foglalt időpontodra.",
+    icon: "door_front",
+    title: "Várakozás",
+    description: "Korábbi érkezés esetén kérjük, várj az üzlet előtt, amíg érted megyünk.",
     // bal oldal felé ágazik ki
     side: "left",
   },
 ];
 
 // A 3 megálló a path hosszának hány %-ánál van (0–1)
-const STOP_FRACTIONS = [0.392, 0.60, 0.565];
+const STOP_FRACTIONS = [0.37, 0.485, 0.535];
 
 // Elágazó vonal hossza (SVG koordinátában)
 const BRANCH_LEN = 90;
 
 const RIBBON_PATH =
-  "M 0 900 C 80 820, 60 680, 200 620 S 400 540, 380 400 S 260 220, 440 160 S 620 80, 700 0";
+  "M 0 900 C 80 820, 60 680, 200 620 S 400 540, 380 400 S 260 220, 440 160 S 620 80, 800 0";
 
 // ─── Elágazási pont kiszámítása a path mentén ─────────────────────────────
 // tangent alapján merőleges irányt számolunk, majd a side alapján irányt választunk
@@ -75,6 +75,9 @@ export default function HowToArrive() {
   const [branches, setBranches] = useState([]);
   const [cardsVisible, setCardsVisible] = useState(false);
 
+  const titleRef = useRef(null);
+  const [titleVisible, setTitleVisible] = useState(false);
+
   useEffect(() => {
     if (pathRef.current) {
       const total = pathRef.current.getTotalLength();
@@ -105,6 +108,17 @@ export default function HowToArrive() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const el = titleRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setTitleVisible(true); },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   // Kártyák késleltetett megjelenése: szalag animáció (2.4s) + kis delay
   useEffect(() => {
     if (!revealed) return;
@@ -120,9 +134,36 @@ export default function HowToArrive() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden py-40 px-[20px] md:px-[80px]"
-      style={{ background: "#172c21", minHeight: "110vh" }}
+      className="relative overflow-hidden pt-8 pb-40 px-[20px] md:px-[80px]"
+      style={{ background: "#172c21", minHeight: "120vh" }}
     >
+      {/* ── Cím ── */}
+      <div
+        ref={titleRef}
+        className="relative z-20 flex flex-col items-center text-center mb-16"
+        style={{
+          opacity: titleVisible ? 1 : 0,
+          transform: titleVisible ? "translateY(0)" : "translateY(32px)",
+          transition: "opacity 0.7s ease, transform 0.7s ease",
+        }}
+      >
+        <span
+          className="block text-[12px] uppercase tracking-[0.2em] mb-2"
+          style={{ color: "var(--color-secondary-fixed-dim)" }}
+        >
+          Fontos tudnivalók
+        </span>
+        <h2
+          className="font-['Bodoni_Moda'] text-[48px] font-medium mb-4"
+          style={{ color: "var(--color-on-primary)" }}
+        >
+          Hogyan érkezz?
+        </h2>
+        <div
+          className="w-20 h-[1.5px] mx-auto opacity-30"
+          style={{ backgroundColor: "var(--color-on-primary)" }}
+        />
+      </div>
       {/* ── Animált szalag + elágazások — csak desktopOn ── */}
       <svg
         viewBox={`0 0 ${VB_W} ${VB_H}`}
