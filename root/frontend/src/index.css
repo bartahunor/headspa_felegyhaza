@@ -325,3 +325,12 @@ section, header, footer {
   opacity: 1;
   filter: blur(0);
 }
+
+@layer base {
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+  }
+}
