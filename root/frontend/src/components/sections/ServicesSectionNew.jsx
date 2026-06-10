@@ -87,6 +87,11 @@ export default function ServicesSection() {
   const motesRef = useRef(null);
   const cardRefs = useRef([]);
 
+  // Swipe tracking
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
+  const isSwiping = useRef(false);
+
   useLightMotes(motesRef);
 
   const scrollToCard = useCallback((index) => {
@@ -105,6 +110,75 @@ export default function ServicesSection() {
       scrollToCard(clamped);
     },
     [scrollToCard]
+  );
+
+  // ── Első kártya középre igazítása betöltéskor ──
+  // A kártyák mérete csak mount után ismert, ezért rövid delay kell
+  useEffect(() => {
+    const timer = setTimeout(() => scrollToCard(0), 50);
+    return () => clearTimeout(timer);
+  }, [scrollToCard]);
+
+  // ── Natív touchmove listener passive:false-szal ──
+  // React onTouchMove nem tudja meghívni e.preventDefault()-t (passive listener),
+  // ezért natívan regisztráljuk, hogy az oldalsó page-scroll tiltható legyen
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const onMove = (e) => {
+      if (touchStartX.current === null) return;
+      const dx = e.touches[0].clientX - touchStartX.current;
+      const dy = e.touches[0].clientY - touchStartY.current;
+      if (!isSwiping.current && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+        isSwiping.current = true;
+      }
+      if (isSwiping.current) e.preventDefault();
+    };
+    el.addEventListener("touchmove", onMove, { passive: false });
+    return () => el.removeEventListener("touchmove", onMove);
+  }, []);
+
+  // ── Touch / swipe kezelés ──
+  const handleTouchStart = useCallback((e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    isSwiping.current = false;
+  }, []);
+
+  const handleTouchMove = useCallback((e) => {
+    if (touchStartX.current === null) return;
+    const dx = e.touches[0].clientX - touchStartX.current;
+    const dy = e.touches[0].clientY - touchStartY.current;
+
+    // Ha dominánsan vízszintes a mozgás, megakadályozzuk az oldalsó page-scrollt
+    if (!isSwiping.current && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8) {
+      isSwiping.current = true;
+    }
+    if (isSwiping.current) {
+      e.preventDefault(); // oldalsó oldal-scroll tiltása
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e) => {
+      if (touchStartX.current === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX.current;
+      const dy = e.changedTouches[0].clientY - touchStartY.current;
+
+      // Csak ha dominánsan vízszintes és elég hosszú a swipe (>40px)
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) {
+          goTo(activeIndex + 1); // balra swipe → következő
+        } else {
+          goTo(activeIndex - 1); // jobbra swipe → előző
+        }
+      }
+
+      touchStartX.current = null;
+      touchStartY.current = null;
+      isSwiping.current = false;
+    },
+    [activeIndex, goTo]
   );
 
   const titleRef = useRef(null);
@@ -129,7 +203,6 @@ export default function ServicesSection() {
       className="py-56 relative overflow-hidden"
       style={{
         background: "linear-gradient(135deg, #172c21 0%, #2d4236 50%, #1d2c1c 100%)",
-        // A szekció teteje átlátszóból jelenik meg — befúszik a hero alá
         maskImage: "linear-gradient(to bottom, transparent 0%, black 120px)",
         WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 120px)",
         marginTop: "-120px",
@@ -177,10 +250,12 @@ export default function ServicesSection() {
 
       {/* ── Carousel wrapper ── */}
       <div className="relative z-10 min-h-[350px] flex items-center">
-        {/* Scrollable track */}
+        {/* Scrollable track — touch handlerekkel */}
         <div
           ref={carouselRef}
           className="flex gap-10 overflow-x-auto no-scrollbar scroll-smooth py-16 px-[10vw] items-center w-full"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {SERVICES.map((service, i) => (
             <ServiceOneCard
@@ -193,8 +268,8 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* ── Navigáció ── */}
-        <div className="absolute inset-x-0 bottom-0 flex justify-between px-5 items-center pointer-events-none">
+        {/* ── Navigáció — mobilon rejtve, md felett látható ── */}
+        <div className="absolute inset-x-0 bottom-0 hidden md:flex justify-between px-5 items-center pointer-events-none">
           <button
             onClick={() => goTo(activeIndex - 1)}
             className="w-14 h-14 rounded-full dark-glass-card border border-white/10 flex items-center justify-center text-white/50 hover:text-white pointer-events-auto hover:bg-white/10 transition-all"
@@ -219,6 +294,16 @@ export default function ServicesSection() {
           >
             <span className="material-symbols-outlined text-3xl">east</span>
           </button>
+        </div>
+
+        {/* ── Mobil progress bar — nyilak nélkül ── */}
+        <div className="absolute inset-x-0 bottom-0 flex md:hidden justify-center px-5 items-center pointer-events-none">
+          <div className="w-48 h-[2px] bg-white/10 relative overflow-hidden rounded-full">
+            <div
+              className="absolute top-0 left-0 h-full bg-champagne transition-all duration-700 rounded-full"
+              style={{ width: `${progressPct}%` }}
+            />
+          </div>
         </div>
       </div>
     </section>
