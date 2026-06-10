@@ -87,7 +87,7 @@ export default function ParallaxHeroSection() {
           style={{
             position: "absolute",
             left: 0,
-            top: "50%",
+            top: "20%",
             ...layerStyle(bgY),
           }}
         />
