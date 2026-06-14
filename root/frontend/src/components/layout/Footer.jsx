@@ -25,14 +25,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 w-full py-12 border-y border-outline-variant/20">
           <div className="space-y-4">
             <p className="font-manrope text-label-sm font-bold text-primary uppercase">Cím</p>
-            <p className="font-manrope text-body-md text-on-surface-variant">
+            <a href="https://maps.app.goo.gl/DQKJBFgp8u1nzLJR9" className="font-manrope text-body-md text-on-surface-variant">
               6100 Kiskunfélegyháza,<br />Klapka utca 24.
-            </p>
+            </a>
           </div>
           <div className="space-y-4">
             <p className="font-manrope text-label-sm font-bold text-primary uppercase">Elérhetőség</p>
             <div className="flex flex-col items-center gap-3">
-              <p className="font-manrope text-body-md text-on-surface-variant">+36 70 886 0021</p>
+              <a href="tel:+36708860021" className="font-manrope text-body-md text-on-surface-variant">
+                +36 70 886 0021
+              </a>
               <a
                 href="https://www.facebook.com/gutildihairstyle"
                 target="_blank"

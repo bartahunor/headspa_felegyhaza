@@ -5,7 +5,6 @@ const navLinks = [
   { label: "Főoldal", to: "/" },
   { label: "Rólunk", to: "/rolunk" },
   { label: "Szolgáltatások", to: "/szolgaltatasok" },
-  { label: "Élmény", to: "/elmeny" },
   { label: "GYIK", to: "/gyik" },
 ]
 

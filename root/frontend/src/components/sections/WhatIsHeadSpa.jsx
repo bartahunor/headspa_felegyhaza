@@ -42,7 +42,7 @@ export default function WhatIsHeadSpa() {
                         Mi is az a Head Spa?
                     </h2>
                     <div className="w-20 h-1 bg-secondary opacity-30 mb-8"></div>
-                    <p className="font-body-lg text-body-lg text-primary leading-relaxed">
+                    <p className="hidden md:block font-body-lg text-body-lg text-primary leading-relaxed">
                         A Head Spa nem csupán egy fejbőrápolási folyamat, hanem egy holisztikus japán rituálé, amely
                         egyesíti a mélytisztító bőrgyógyászati technikákat a meditatív relaxációval.
                     </p>
