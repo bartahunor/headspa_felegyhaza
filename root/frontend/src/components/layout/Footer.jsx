@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const footerLinks = [
-  { label: "Adatkezelés", to: "/adatkezeles" },
-  { label: "Impresszum", to: "/impresszum" },
-  { label: "Kapcsolat", to: "/kapcsolat" },
-]
+
 
 export default function Footer() {
   return (
@@ -57,16 +53,12 @@ export default function Footer() {
         </div>
 
         {/* Jogi linkek */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {footerLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className="nav-link font-manrope text-label-sm font-semibold text-on-surface-variant hover:text-primary transition-colors duration-300 underline-offset-4 hover:underline"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="font-manrope text-label-sm font-semibold text-on-surface-variant hover:text-primary transition-colors duration-300 underline-offset-4">
+          Az oldal kezeléssel kapcsolatos információkért: 
+          <br></br>
+          <a href="mailto:princioinfo@gmail.com" className="hover:underline transition-colors duration-300 underline-offset-4 ">
+            princioinfo@gmail.com
+          </a>
         </div>
 
         {/* Copyright */}
