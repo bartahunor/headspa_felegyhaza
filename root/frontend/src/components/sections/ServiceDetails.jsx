@@ -2,6 +2,9 @@ import ServiceTab from "../ui/ServiceTab.jsx";
 import premiumHeadSpaImage from "../../assets/premium_headspa.png";
 import kariteImage from "../../assets/karite_vaj.png";
 import hajhullasImage from "../../assets/hajhullas.png";
+import boltbelso from "../../assets/bolt_belso.jpeg";
+import korpashaj from "../../assets/korpas_haj.png";
+import zsiroshaj from "../../assets/zsiros_haj.png";
 // A CSS-t add hozzá a globals.css-hez, vagy importáld közvetlenül:
 // import "@/styles/service-animations.css";
 
@@ -20,7 +23,7 @@ const services = [
       "Hajformázás ionizáló hajszárítóval",
     ],
     note: "A kezelés egy egész testet átmasszírozó relaxágyon történik.",
-    imageSrc: "/images/relax-30.jpg",
+    imageSrc: boltbelso,
     imageAlt: "Fejbőr masszázs",
     reverse: false,
     accentVariant: "top-left",
@@ -40,7 +43,7 @@ const services = [
       "Hajformázás ionizáló hajszárítóval",
     ],
     note: "A kezelés egy egész testet átmasszírozó relaxágyon történik.",
-    imageSrc: "/images/oil-control.jpg",
+    imageSrc: zsiroshaj,
     imageAlt: "Zsírosodás elleni kezelés",
     reverse: true,
     accentVariant: "bottom-right",
@@ -60,7 +63,7 @@ const services = [
       "Hajformázás (ionizáló hajszárítóval történik, a haj minőségének megőrzéséért)"
     ],
     note: "A kezelés egy egész testet átmasszírozó relaxágyon történik.",
-    imageSrc: "",
+    imageSrc: korpashaj,
     imageAlt: "Healthy Scalp - Korpásodás elleni rituálé",
     reverse: false,
     accentVariant: "top-left",

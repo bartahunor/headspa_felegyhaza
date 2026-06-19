@@ -1,4 +1,4 @@
-import GutIldikoImg from "../../assets/noprofile.jpg";
+import GutIldikoImg from "../../assets/horvath_adrienn.jpeg";
 import WreathImg from "../../assets/Gemini_Generated_Image_dsaos6dsaos6dsao.png";
 
 export default function AboutCoworker() {
@@ -11,7 +11,7 @@ export default function AboutCoworker() {
           <div className="order-1 md:order-1 space-y-8">
 
             <h2 className="font-bodoni text-headline-lg text-primary">
-              XY Adrienn
+              Horváth Adrienn
             </h2>
 
             <div className="w-20 h-1 bg-secondary opacity-30" />
