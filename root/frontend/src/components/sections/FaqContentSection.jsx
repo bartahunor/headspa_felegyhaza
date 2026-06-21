@@ -15,7 +15,7 @@ const faqItems = [
   },
   {
     q: "Milyen termékeket használnak a kezelések során?",
-    a: "Kizárólag professzionális, növényi összetevőket tartalmazó termékekkel dolgozunk. ",
+    a: "A kezelések során kizárólag minőségi, természetes alapanyagokra épülő termékekkel dolgozom. A bőr egészségének fenntartása érdekében a magyar fejlesztésű NORAN professzionális natúrkozmetikumait használom, amelyek növényi hatóanyagokkal, vitaminokkal és bőrbarát összetevőkkel támogatják a bőr természetes egyensúlyát. Továbbá a Kemon termékeit alkalmazzuk, amelyek magas arányban tartalmaznak természetes eredetű összetevőket, környezettudatos szemlélettel készülnek, és rendelkeznek ICEA Vegan tanúsítvánnyal. Ez garantálja, hogy a termékek nem tartalmaznak állati eredetű vagy GMO-alapanyagokat, miközben a gyártás is szigorú minőségi és higiéniai előírások szerint történik.",
   },
   {
     q: "Hogyan tudok időpontot foglalni?",

@@ -41,6 +41,8 @@ export default function ServiceTab({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("service-reveal-active");
+          } else {
+            entry.target.classList.remove("service-reveal-active");
           }
         });
       },
@@ -48,7 +50,8 @@ export default function ServiceTab({
     );
 
     elements.forEach((el) => observer.observe(el));
-    return () => elements.forEach((el) => observer.unobserve(el));
+    return () => observer.disconnect();
+
   }, []);
 
   const blobClass =
