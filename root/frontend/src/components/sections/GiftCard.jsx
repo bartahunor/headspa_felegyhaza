@@ -1,3 +1,4 @@
+import giftCardImage from "../../assets/szalon.jpeg";
 export default function GiftCard() {
     return (
         <section
@@ -115,7 +116,7 @@ export default function GiftCard() {
                         <img
                             alt="Luxury Spa Environment"
                             className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS5YNbbZASsfq5dyY71NLgGjffDlDngPerOq9eqphCXvtHTJkhgIMyt53k_hlysPV-m-teszhT9Dct-mpen4VeatbQwmvDC255jH6U3-aKU5DcNrqTNrkdf9YMY6B7cpMfwjYaptgtiHoNeRXkV6iLrB4RaDFfSXVIZ1YzxRM6QAVKU5LEDs0z_8o_kdUXNyTpszFtQs_gsOu4TWGNCkeGUpYgObZvI7o5-k10w_QI12YmIhtmYcovmBVYLzbX1Z3OdnH5mSpMxrw"
+                            src={giftCardImage}
                         />
                     </div>
 

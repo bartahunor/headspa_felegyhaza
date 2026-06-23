@@ -15,16 +15,16 @@ import TestimonialCard from "../ui/TestimonialCard";
 const TESTIMONIALS = [
   {
     id: 1,
-    text: "Életem legjobb fejbőrmasszázsa volt. Teljesen ellazultam, és a hajam is sokkal egészségesebbnek tűnik azóta. Minden hónapban visszajövök!",
-    name: "Kovács Mária",
+    text: "Szuper élmény volt! Nagyon szép környzetben, feltöltődés a testnek és léleknek. Igazi kikapcsolódás ebben a rohanó napokban. Én mindenkinek jószívvel ajánlom! ",
+    name: "Dobos Krisztina",
     tag: "Törzsvendég",
     stars: 5,
     align: "left",
   },
   {
     id: 2,
-    text: "Először voltam head spa kezelésen és nem hittem volna, hogy ennyire más lehet. Ildikó nagyon figyelmes és professzionális. Csak ajánlani tudom!",
-    name: "Szabó Borbála",
+    text: "Imádtam minden pillanatát. Én biztos, hogy törzsvendég leszek! Köszönöm szépen az élményt!",
+    name: "Dósa Tímea",
     tag: "Első alkalom",
     stars: 5,
     align: "right",
